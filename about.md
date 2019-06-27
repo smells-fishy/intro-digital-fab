@@ -3,8 +3,7 @@ layout: default
 title: About
 permalink: /about/
 ---
-
-## Welcome to my Webpage for PHYS-S12: Introduction to Digital Fabrication
+<h1 id = "aboutTitle"> Welcome to my Webpage for PHYS-S12: Introduction to Digital Fabrication </h1>
 
 #### _About Me_
 

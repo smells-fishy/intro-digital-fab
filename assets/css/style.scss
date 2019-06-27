@@ -3,6 +3,12 @@
 
 @import "{{ site.theme }}";
 
+h1#aboutTitle {
+
+	color: orange;
+
+}
+
 h3 {
 
 	color: orange;
@@ -15,7 +21,7 @@ h4 {
 
 }
 
-div.image {
+div#image {
 
 	width: 869px;
 	padding-bottom: 0px;
