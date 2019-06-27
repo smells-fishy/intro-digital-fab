@@ -3,6 +3,21 @@
 
 @import "{{ site.theme }}";
 
+div#image1 {
+
+	width: 869px;
+	padding-bottom: 0px;
+	border-style: dashed;
+
+}
+
+iframe#inspiration1 {
+
+	padding-top = 0px;
+	padding-bottom = 0px;
+
+}
+
 h1#aboutTitle {
 
 	color: orange;
@@ -18,13 +33,5 @@ h3 {
 h4 {
 
 	color: red;
-
-}
-
-div#image1 {
-
-	width: 869px;
-	padding-bottom: 0px;
-	border-style: dashed;
 
 }
