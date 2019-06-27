@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-### Welcome to my Webpage for PHYS-S12: Introduction to Digital Fabrication
+## Welcome to my Webpage for PHYS-S12: Introduction to Digital Fabrication
 
 #### _About Me_
 
