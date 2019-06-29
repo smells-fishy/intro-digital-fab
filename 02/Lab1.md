@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "02: Basic tools, procedures, and electronics"
+title:  "Week 2: My First Lab"
 permalink: /02/Lab1
 ---
 
