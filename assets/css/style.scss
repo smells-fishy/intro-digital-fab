@@ -5,7 +5,7 @@
 
 /*Styling for buttons*/
 
-.collapsibleLab1, .collapsibleClass2 {
+.collapsible, .collapsible{
 	font-size: 1.17em;
 	color: orange;
   cursor: pointer;
@@ -17,11 +17,11 @@
 }
 
 
-.active, .collapsibleLab1:hover, .collapsibleClass2:hover {
+.active, .collapsible:hover {
   background-color: #ccc;
 }
 
-#Lab1, #Class2 {
+#content {
   padding: 0 18px;
   display: none;
   overflow: hidden;
