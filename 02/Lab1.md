@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Week 2: My First Lab"
 permalink: /02/Lab1
 ---
