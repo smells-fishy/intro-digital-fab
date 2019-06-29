@@ -5,7 +5,7 @@
 
 /*Styling for buttons*/
 
-#collapsibleLab1 {
+.collapsibleLab1 {
 	font-size: 1.17em;
 	color: orange;
   cursor: pointer;
@@ -17,7 +17,7 @@
 }
 
 
-.active, #collapsibleLab1:hover {
+.active, .collapsibleLab1:hover {
   background-color: #ccc;
 }
 
