@@ -87,8 +87,10 @@ commands. The signal value can be converted into voltage by multiplying by 5 (5V
 	    var content = this.nextElementSibling;
 	    if (content.style.display === "block") {
 	      content.style.display = "none";
+				this.classList.toggle("active");
 	    } else {
 	      content.style.display = "block";
+				this.classList.toggle("active");
 	    }
 	  });
 	}
