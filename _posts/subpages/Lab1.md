@@ -2,7 +2,6 @@
 layout: post
 title:  "Week 2: My First Lab"
 permalink: /02/Lab1
-...
 ---
 
 ### Lab 1 (June 26)
