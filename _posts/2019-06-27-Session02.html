@@ -12,11 +12,11 @@ During my first lab, I explored Arduino boards (as well as the Arduino programmi
 
 After exploring circuits, I attempted to manipulate the LED output using the Arduino programming language. Initially, I explored the "Blink" example packaged in the Arduino IDE, which causes an LED to alternate on/off cycles every second. I was able to manipulate the code to cause a single LED to blink ten times a second.
 
-<img src="blink_arduino.png" alt="Blink program code">
+<img src="blink_arduino.png" alt="Blink program code" style="height: 300px; width:auto;">
 
 Arduino's example blink code
 
-<img src="ten_blink.png" alt="Blink program code">
+<img src="ten_blink.png" alt="Blink program code" style="height: 300px; width:auto;">
 
 My modified blink code
 
@@ -24,7 +24,7 @@ I continued to experiment with the code, moving on to making multiple lights bli
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">delay()</span>
 function causing interrupts in the main loop in the Arduino code.
 
-<img src="multiblink_one.png" alt="My initial attempt" style="height:492px; width:360px;">
+<img src="multiblink_one.png" alt="My initial attempt" style="height: 300px; width:auto;">
 
 My initial attempt at a program. The delays delay each other, and the two code blocks do not run simultaneously.
 
@@ -32,8 +32,8 @@ Attempts to run multiple
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">void loop()</span>
 simultaneously failed due to the Uno's single core being incapable of running multiple functions at once. However, after some experimentation and some inspiration from StackExchange and the Arduino Forums, I developed this program:
 
-<img src="multiblink_one_s.png" alt="Code segment 1">
-<img src="multiblink_two_s.png" alt="Code segment 1">
+<img src="multiblink_one_s.png" alt="Code segment 1" style="height: 300px; width:auto;">
+<img src="multiblink_two_s.png" alt="Code segment 1" style="height: 300px; width:auto;">
 
 This program allows for multiple functions to run at the same time via calling in the
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">void loop()</span>
@@ -56,7 +56,7 @@ The takeaway from this lab is that Arduinos cannot run multiple functions at onc
 
 During Thursday's lecture, we explored the functions of voltmeters and how to use the Arduino board as a voltmeter. First, we used voltmeters to measure the voltage across the circuits we built during Wednesday's lab session. We used voltmeters with bare wire leads to allow for ease of attachment to the circuit.
 
-<img src="voltmeter.jpg" alt="Voltmeter Setup">
+<img src="voltmeter.jpg" alt="Voltmeter Setup" style="height: 300px; width:auto;">
 
 Notice that the voltmeter is attached to the circuit in parallel, and that the voltage was measured directly across the LED. This setup yields the forward voltage drop of the LED. However, it must be noted that voltage drops measured from the LED cannot be used for circuit analysis via Ohm's Law, as LEDs do not obey Ohm's Law (LEDs have an exponential relationship between voltage and current). If analysis of the circuit is desired, then the voltage drop must be measured across the resistor in the circuit.
 
@@ -67,7 +67,7 @@ command, Arduino can read voltages through the "analog" pins on the board. All t
 <video width="955" height="541" controls>
 	<source src="VOLTMETER.MOV" type="video/mp4">
 </video>
-<img src="VoltmeterArd.png" alt="Arduino Voltmeter">
+<img src="VoltmeterArd.png" alt="Arduino Voltmeter" style="height: 300px; width:auto;">
 
 As you can see, the program reads the signal from the Arduino analog pin and then displays it onto the console using the
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">Serial.begin() and Serial.prinln()</span>
