@@ -43,7 +43,7 @@ simultaneously failed due to the Uno's single core being incapable of running mu
 . Each LED has its own timeOn variable to track how long it has been on in order to calculate when to switch next. (Note: The significance of the unsigned long variable is that Arduino's
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">millis()</span>function resets after 50 days. An unsigned long integer in Arduino can store 32 bits, or values from 0 to 4,294,967,295. This amount of milliseconds corresponds to 49.7 days.)</p>
 
-<video width="955" height="541" controls>
+<video height="200px" controls>
 	<source src="BLINK.MOV" type="video/mp4">
 </video>
 
@@ -67,7 +67,7 @@ Next, we examined the usage of the Arduino board as a voltmeter. Using the
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogRead()</span>
 command, Arduino can read voltages through the "analog" pins on the board. All that is required is to change the circuit such that the ground wire goes into any one of the analog input slots.
 
-<video width="955" height="541" controls>
+<video height="200px" controls>
 	<source src="VOLTMETER.MOV" type="video/mp4">
 </video>
 <img src="VoltmeterArd.png" alt="Arduino Voltmeter" style="height: 300px; width:auto; display:block;">
