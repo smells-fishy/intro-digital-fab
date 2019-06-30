@@ -52,7 +52,7 @@ The takeaway from this lab is that Arduinos cannot run multiple functions at onc
 
 <p class="collapsible" id="1">Class 2 (June 27)</p>
 
-<div markdown="1" id="2">
+<div markdown="1" id="3">
 
 During Thursday's lecture, we explored the functions of voltmeters and how to use the Arduino board as a voltmeter. First, we used voltmeters to measure the voltage across the circuits we built during Wednesday's lab session. We used voltmeters with bare wire leads to allow for ease of attachment to the circuit.
 
@@ -73,12 +73,12 @@ As you can see, the program reads the signal from the Arduino analog pin and the
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">Serial.begin() and Serial.prinln()</span>
 commands. The signal value can be converted into voltage by multiplying by 5 (5V is the maximum) and dividing by 1023 (1024-1, the maximum values the analog pin can read).
 
-<p class="mini" id="2" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+<p class="mini" id="4" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
 
 </div>
 
 <script>
-	
+
 	//Expanding script
 	var coll = document.getElementsByClassName("collapsible");
 	var i;
@@ -103,7 +103,7 @@ commands. The signal value can be converted into voltage by multiplying by 5 (5V
 	for (i = 0; i < mini.length; i++) {
 	  mini[i].addEventListener("click", function() {
 	    this.classList.toggle("active");
-			var id = this.id;
+			var id = this.id - 1;
 	    var content = document.getElementById(id);
 	    if (content.style.display === "block") {
 	      content.style.display = "none";
