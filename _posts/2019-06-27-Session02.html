@@ -67,10 +67,12 @@ Next, we examined the usage of the Arduino board as a voltmeter. Using the
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogRead()</span>
 command, Arduino can read voltages through the "analog" pins on the board. All that is required is to change the circuit such that the ground wire goes into any one of the analog input slots.
 
-<video height="200px" style="diplay: block;" controls>
+<div id="image">
+<video height="300px" controls>
 	<source src="VOLTMETER.MOV" type="video/mp4">
 </video>
 <img src="VoltmeterArd.png" alt="Arduino Voltmeter" style="height: 300px; width:auto; display:block;">
+</div>
 
 As you can see, the program reads the signal from the Arduino analog pin and then displays it onto the console using the
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">Serial.begin() and Serial.prinln()</span>
