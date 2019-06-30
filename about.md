@@ -12,3 +12,9 @@ Hi, I'm Tony! I really enjoy building things, even though I'm a slow worker and 
 #### _Why Fabrication?_
 
 Looking into the future, I'm interested in the integration of mechanical mimicry of biological systems into medicine and medical engineering. I believe that nanomachines can provide huge insights into the advancement of medicine and can eliminate, or at least alleviate, the majority of human suffering due to disease on Earth.
+
+##### Citations
+
+Credit goes to W3Schools for their clever implementation of JavaScript to create compressibles. Their code was used (with slight modifications) for compressibles on my webpages. View the source code at
+<a href="https://www.w3schools.com/howto/howto_js_collapsible.asp" target="_blank">https://www.w3schools.com/howto/howto_js_collapsible.asp</a>
+(Opens in a new window)
