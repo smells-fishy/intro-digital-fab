@@ -111,41 +111,6 @@ For my first project, I'm going to be making a two-piece robotic arm. I won't be
 	<source src="ROBOARM.MOV" type="video/mp4">
 </video>
 
-
-<p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
-
-</div>
-
-<p class="collapsible">Two Labs (July 3 and July 8)</p>
-
-<div markdown="1" id="7" class="content">
-
-<p>For these two labs, I tried to make a press-fit box and a prototype using cardboard and a laser cutter. First, I created some CAD files for the box and a final project prototype, which are available for download <a href='dxf.zip' download>here</a>. My first box was just a test, but the second one was designed to hold cards from Magic: The Gathering. For these projects, I used carboard of a thickness of 4.6 mm.</p>
-
-<p>Initially, I made a test box to analyze the kerf of the laser cutter. I chose some arbitrary dimensions (all multiples of 10 for ease of calculation) for the box, created a CAD file, and then cut the pieces out. The kerf was found to be roughly 0.4mm through measurement by calipers. I found that in order to make proper tabs and notches in the box faces, you must add kerf to the tab dimensions, and subtract kerf from the notch dimensions. This should result in proper dimensions and a tight fit between the pieces. However, my box did not result in a tight fit, and the individual pieces are shown below. Furthermore, I forgot to account for the thickness of the cardboard in my dimensions, which resulted in the box ends fitting improperly.</p>
-
-<img src="boxpieces.jpg" alt="The pieces of my box" style="height: 300px; width:auto; display:block;">
-
-<p>I moved on to making my box to store Magic cards. Magic cards are 2.5 in by 3.5 in, so roughly 63.5 mm by 88.9 mm. In order to allow for a looser fit, I made the dimensions 63.8 mm by 89 mm. Accounting for the kerf, this became 63.4 mm by 88.6 mm. Then, since the notches were on the vertical faces, the vertical dimension became 97.8 mm in order to accomodate for the thickness of the cardboard, rounded up to 98 mm to allow for a looser fit.</p>
-
-<p>After developing the CAD file, I proceeded to cut the box out. Although the fit was not tight, the box held together quite nicely without support.</p>
-
-<img src="mtgbox.jpg" alt="The finished box" style="height: 300px; width:auto; display:block;">
-
-<p>In order to give the box the extra support that it needed, I used hot glue on the tabs to join the pieces (cheating!) and to hold them in place. Unfortunately, due to the lack of special connector pieces, even if the box were a tight fit it would be prone to falling apart.</p>
-
-<img src="mtgboxclosed.jpg" alt="The finished box" style="height: 300px; width:auto; display:block;">
-
-<p>Next, I decided to pursue a cardboard prototype of my final project idea. I created a motor bracing with the cardboard, and created a piece to connect the braces and act as a base. Measurements of the motor indicated that it was roughly 33 mm long, had a case diameter of 27.4 mm, and a shaft diameter of 2.3 mm.</p>
-
-<img src="proto.jpg" alt="The initial prototype pieces" style="height: 300px; width:auto; display:block;">
-
-<p>After cutting, I found that one of the pieces was improperly dimensioned because I didn't account for the thickness of the cardboard. Unfortunately, I ran out of time during lab, so the project will have to be picked up next time. In the meantime, the CAD file will be fixed and redimensioned.</p>
-
-<p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
-
-</div>
-
 <script>
 	//Expanding script
 	var coll = document.getElementsByClassName("collapsible");
