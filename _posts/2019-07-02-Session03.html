@@ -60,13 +60,13 @@ permalink: /03/
 
 <div id="5" class="content">
 
-<p>During this lab, I finished my prototype. First, I assembled the pieces that I fabricated on Monday. The press-fit pieces fit very tightly, and the cardboard was able to support the weight of the motors. I used hot glue to reinforce the joining and to make it more permanent. I also soldered all electrical connections to make them permanent and so I can get rid of the breadboard.</p>
+<p>During this lab, I finished my prototype. First, I assembled the pieces that I fabricated on Monday. I also incorporated two DC motors. The press-fit pieces fit very tightly, and the cardboard was able to support the weight of the motors. I used hot glue to reinforce the joining and to make it more permanent. I also soldered all electrical connections to make them permanent and so I can get rid of the breadboard.</p>
 
 <img src="protodone.jpg" alt="The finished prototype" style="height: 300px; width:auto; display:block;">
 
-<p>Now, it was time to figure out the amount of power my prototype needed. I used a DC controlled power supply for this purpose. I connected by prototype to the power supply using alligator clips, and then adjusted the knobs until I got the desired speed and amperage pull. I found that the motors pulled one amp at two volts (these motors are very greedy). In order to power the motors at these settings, I decided to attempt powering using a LiPo battery and the PWM pins on the Arduino.</p>
+<p>When I initially plugged my prototype into the Arduino board (power was supplied by the 5V and the Ground pins), I ran into issues with the motor starting and then abruptly stopping. I concluded that it was due to insufficient current. In order to troubleshoot, I figured out the amount of power my prototype needed. I used a DC controlled power supply for this purpose. I connected my prototype to the power supply using alligator clips, and then adjusted the knobs until I got the desired speed and amperage pull. I found that the motors pulled one amp at two volts (these motors are very greedy). Initially, I considered using a 9V battery, but I discovered that 9V batteries are designed for less amperage. In order to power the motors at these settings, I decided to attempt powering using a 3.7V, 2000mAh lithium polymer battery and the PWM pins on the Arduino.</p>
 
-<p>However, I forgot that in order to run the motors from the PWM I needed to use a transistor. The transistor allows for speed modulation from the PWM pins and essentially allows us to run the motor with the voltage specified by the PWM.</p>
+<p>However, I forgot that in order to run the motors from the PWM I needed to use a transistor. The transistor allows for speed modulation from the PWM pins and essentially allows us to run the motor with the voltage specified by the PWM. Upon addition and soldering of a transistor into my circuit, the prototype started running successfully.</p>
 
 <video height="200px" controls>
 	<source src="PROTO.MOV" type="video/mp4">
