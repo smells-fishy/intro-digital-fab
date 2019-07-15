@@ -4,40 +4,25 @@ title:  "05: Programmable Electronics"
 permalink: /05/
 ---
 
-### Header 3
+<p class="collapsible">Lab (July 15)</p>
 
-Use the "Header 3" syntax to begin a new section. To begin a new paragraph, just start writing on a new line. This will all be automatically converted to HTML by Jekyll.
+<div>
 
-A good post describes what you did to complete the assignment, including text and images and links to any 3rd party resources you used. A great post serves as a tutorial that is detailed enough that someone else could recreate your assignment just from your documentation.
+<p>For my programmable electronics assignment, I made a circuit that causes a yellow LED to fade over a period of 10 seconds when a button is pressed.</p>
+<p>This was accomplished using an Arduino board and a protoboard. First, I planned my circuit. Shown below is a Fritzing-made schematic for the circuit.</p>
 
-Other Markdown syntax you may want to use:
+<img src="circuit051.jpg" alt="Circuit diagram" style="height: 300px; width: auto; display:block;">
 
-- Bulleted
-- List
+<p>I assembled the circuit using the same colored wires and using a protoboard to facilitate connections. I initially ran into issues with the button value randomly reading "pressed" when in reality it was not pressed, but this was resolved rapidly by replacing the component.</p>
+<p>However, I also wired the circuit improperly. I accidentally wired the button straight to digital pin 2 (instead of the 5V) with no external resistor, which caused the circuit to malfunction when pin 2 was set to INPUT, but not when the pin was set to OUTPUT. After finding out about this, I took apart the circuit and rebuilt it properly. Below, you can find a video of the circuit working and an image.</p>
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-<!-- You can include comments that will not be translated to HTML -->
-
-<!-- You can include links and images in the following format: -->
-
-[Link Description](url) and ![Alternative text](motor.jpg)
-
-
-<!-- Or, you can also directly include HTML, for example to make a split image -->
-
-<img src="board1.jpg" alt="Board Traces" style="height: 200px; max-width: 48%">
-<img src="board2.jpg" alt="Board Interior" style="height: 200px; max-width: 48%">
-
-
-<!-- You can also use HTML tags to include a video -->
-<video width="955" height="541" controls>
-	<source src="demo.mp4" type="video/mp4">
+<img src="circuit.jpg" alt="Circuit" style="height: 300px; width: auto; display: block">
+<video height="200px" controls>
+	<source src="CIRCUIT.MOV" type="video/mp4">
 </video>
 
-<!-- Or to add a download link to any (reasonably small) file in your permalink directory -->
+<p>The code for the program was the last thing to finish. The code uses an if/else statement to test for the button's status and a for loop to fade the LED in a step-wise fashion. Below is an image of the code.</p>
 
-<a href='cube.stl' download>Click to download my STL file</a>
+<img src="code.png" alt="The program" style="height: 300px; width: auto; display: block">
+
+<p>The setup function initializes the pins that will be utilized by the program</p>
