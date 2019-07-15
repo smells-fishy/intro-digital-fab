@@ -13,16 +13,19 @@ permalink: /05/
 
 <img src="circuit051.jpg" alt="Circuit diagram" style="height: 300px; width: auto; display:block;">
 
-<p>I assembled the circuit using the same colored wires and using a protoboard to facilitate connections. I initially ran into issues with the button value randomly reading "pressed" when in reality it was not pressed, but this was resolved rapidly by replacing the component.</p>
-<p>However, I also wired the circuit improperly. I accidentally wired the button straight to digital pin 2 (instead of the 5V) with no external resistor, which caused the circuit to malfunction when pin 2 was set to INPUT, but not when the pin was set to OUTPUT. After finding out about this, I took apart the circuit and rebuilt it properly. Below, you can find a video of the circuit working and an image.</p>
+<p>I assembled the circuit using all black wires (mistake...) and using a protoboard to facilitate connections. I initially ran into issues with the button value randomly reading "pressed" when in reality it was not pressed, but this was resolved rapidly by replacing the component.</p>
+<p>However, I also wired the circuit improperly. I accidentally wired the button straight to digital pin 2 (instead of the 5V) with no external resistor, which caused the circuit to malfunction when pin 2 was set to INPUT, but not when the pin was set to OUTPUT. After finding out about this, I took apart the circuit and rebuilt it properly, with properly colored wires. Below, you can find a video of the circuit working and an image.</p>
 
 <img src="circuit.jpg" alt="Circuit" style="height: 300px; width: auto; display: block">
 <video height="200px" controls>
 	<source src="CIRCUIT.MOV" type="video/mp4">
 </video>
 
-<p>The code for the program was the last thing to finish. The code uses an if/else statement to test for the button's status and a for loop to fade the LED in a step-wise fashion. Below is an image of the code.</p>
+<p>The code for the program is critical to the function of the circuit. The code uses an if/else statement to test for the button's status and a for loop to fade the LED in a step-wise fashion. Below is an image of the code.</p>
 
 <img src="code.png" alt="The program" style="height: 300px; width: auto; display: block">
 
-<p>The setup function initializes the pins that will be utilized by the program</p>
+<p>The setup function initializes the pins that will be utilized by the program. For this program, I will be using pins 2 and 3. Pins 0 and 1 should generally be avoided, because they are used for other board purposes and therefore may cause interference.</p>
+<p>In the main loop function, you can see the initialization of the "buttonState" variable, which stores the single-byte state of the button (HIGH for pressed and LOW for deactivated). If the button is pressed (buttonState == HIGH), then the for loop will execute. The for loop causes the LED to fade using analogWrite at successively lower values.</p>
+<p>The program also has debug functions to read the voltage in the button loop of the circuit through analog input pin A0. The serial monitor came in handy when initially troubleshooting the circuit and ensuring that the issues were with the circuit, not the program.</p>
+<p>During this lab, I've learned to be more organized and careful during the process of circuit building. Even though I had a plan, my execution was mistake-riddled and led me down a long road of troubleshooting.</p>
