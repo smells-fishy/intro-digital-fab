@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "06: 3D Design & Printing"
+permalink: /06/
+---
+
+<p class="collapsible">Lab (July 17)</p>
+
+<div>
+
+<p>This week, we explored 3D printing. Although this isn't my first experience with 3D printing, I still learned a lot and had a great time fooling around and trying some pretty cool things.
+
+<p>For lab today, we were to design a small component printable in 15 minutes or less. I designed a cylinder with 3 cylinders coming out of it, which I have stylized as "useful."
+
+<img src="STL.png" alt="My STL file" style="height: 300px; width: auto; display:block;">
+
+<p>This was created by creating diameter/center circles in Fusion 360 and then extruding them to heights of 3.00 , 5.00, 6.00, and 7.00 mm. This results in a cylindrical base with 3 other cyclinders of varying heights coming out of it. The body was exported as a STL file to the Ultimaker Cura slicer software and then processed into gcode. The Prusa printer was able to print the entire piece in roughly 13 minutes.</p>
+
+<img src="cylinder.png" alt="My finished cylinder" style="height: 300px; width: auto; display:block;">
+
+
+
+<p>The final product was very clean and precise, even though the STL was created with only medium resolution. There were no "hairy" spots on the print, which pleased me greatly.</p>
+
+<p>After pursuing this initial project succesfully, I chose to go after something much more ambitious, which was creating a 3-dimensional model of Harvard's Memorial Church and printing it out. This project required me to go outside and count steps and pillars, as well as introducing me to a bunch of new techniques.</p>
+
+<p>The first thing that I had to do was to find a way to make the church in scale. Initially, I tried to draw it by hand but Emiliano came in at the last second and taught me about a Fusion 360 feature called the "canvas."</p>
+
+<img src="canvaschoice.png" alt="The insert canvas option" style="height: 300px; width: auto; display:block;">
+
+<img src="canvas.png" alt="The canvas I used" style="height: 300px; width: auto; display: block;">
+
+<img src="churchstl.png" alt="The STL for the church model" style="height: 300px; width: auto; display: block;">
+
+<p>I used a Google Maps screenshot as a canvas to provide a to-scale base. Then, I went through the long process of modeling all of the features of the church. The stairs were created using incremental offsets and the everything was relatively standard. I used the extrusion vertical planes to create the triangular prisms.</p>
+
+<p>The real challenge was creating the hexagonal pyramids on the "spire" of the church. In order to do this, I made circumscribed hexagons and extruded them with a taper angle so that they would taper to a point, thus creating a pyramid.</p>
+
+<p>The Pursa printer used around 20 minutes to print out the final product. The print ended up being almost two pennies long, but the detail you can see is fascinating. Each step is around 0.08 mm long and the vertical rise is only 0.06 mm, but they are individually very defined in the final print.</p>
+
+<img src="church.jpg" alt="The final print of the church" style="height: 300px; width: auto; display: block;">
+
+<p>You can download my STL files for the church <a href=Church.zip download>here</a>
+
+</div>
+
+<!-- You can also use HTML tags to include a video -->
+<video width="955" height="541" controls>
+	<source src="demo.mp4" type="video/mp4">
+</video>
+
+<!-- Or to add a download link to any (reasonably small) file in your permalink directory -->
+
+<a href='cube.stl' download>Click to download my STL file</a>
