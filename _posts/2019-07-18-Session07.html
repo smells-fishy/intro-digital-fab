@@ -27,7 +27,15 @@ permalink: /07/
 
 </div>
 
-<p>
+<p>Next, I added the buzzer to the touch sensor circuit, using the 9 and ground pins again. Immediately, the buzzer started outputting the most bizzare noises. When I touched the capacitor, it resulted in painfully high-pitched dog-whistle-like noises.</p>
+
+<video height="400px" controls>
+	<source src="SOUND.MOV" type="video/mp4">
+</video>
+
+<p>What is interesting is that the maximum output (which occurs when I touch the capacitor plate) of the touch sensor is well over 300,000, which is far above the hearing limit of a human. The fact that the buzzer still played any audible noise at all suggests that the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">tone()</span> function has a built-in <span markdown="1" style="background-color: lightgray; font-family:Courier New;">map()</span> function in order to ensure that the buzzer is always output audible noise. Alternatively, the buzzer is mechanically limited to audible noise and therefore wouldn't output noises above the human audible limit in any case.</p>
+
+<p>In any case, this was a really interesting experiment. I would like to further explore the idea of making an instrument with the plates, although that may be difficult with my final project, model of Harvard Yard, and attempt to recreate quantum mechanical experiments on a budget on my plate already.</p>
 
 </div>
 
