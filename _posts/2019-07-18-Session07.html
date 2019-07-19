@@ -1,0 +1,70 @@
+---
+layout: post
+title:  "07: Electronic Input Devices"
+permalink: /07/
+---
+
+<p class="collapsible">Class (July 18)</p>
+
+<div id="1" class="content">
+
+<p>Although I usually don't document lectures, Thursday's lecture was a lot of fun and I got to annoy people a lot with a circuit I made, so I think for all future students, this will be a good learning experience on how to get kicked out of the classroom when you do input devices.</p>
+
+<p>This lecture, we investigated sensors. The most interesting sensor to me was the capacitor plates, since I think they have a lot of practical applications. For example, we were able to make sensors for touch using the capacitor plates.</p>
+
+<p>However, I had other ideas. I noticed that the serial grapher put out waveforms that reminded me of waveforms commonly seen in music, like square and saw waves. I just felt like I had to investigate the potential of making noise with the output from the touch sensor.</p>
+
+<img src="serial.jpg" style="height: 200px; width: auto; display: block;" alt="The serial graph">
+
+<p>Rob caught me out at a good time and gave a buzzer (I suspect that it's piezoelectric but I'm not sure) and told me about a function called <span markdown="1" style="background-color: lightgray; font-family:Courier New;">tone()</span> in the standard Arduino library. Its syntax is <span markdown="1" style="background-color: lightgray; font-family:Courier New;">tone(pin, frequency)</span>, where pin is the digital output pin that the buzzer is connected to and frequency is the frequency to output.</p>
+
+<p>I initially tested the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">tone()</span> function by writing a program to make a buzzer output the relatively pleasant A 440 Hz tone. This was accomplished by wiring the buzzer to pin 9 and ground and writing the line <span markdown="1" style="background-color: lightgray; font-family:Courier New;">tone(9, 440)</span>. This experiment proved to be relatively successful.</p>
+
+<div>
+
+<img src="A.png" style="height: 200px; width: auto; display: block;" alt="The program for A 440">
+<img src=Acir.jpg style="height: 200px; width: auto; display: block;" alt="The circuit schematic">
+
+</div>
+
+</div>
+
+<script>
+	//Expanding script
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+	  });
+	}
+	//Minimizing script
+	var mini = document.getElementsByClassName("mini");
+	var i;
+
+	for (i = 0; i < mini.length; i++) {
+	  mini[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+			var id = this.id - 1;
+	    var content = document.getElementById(id);
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+	  });
+	}
+
+
+</script>

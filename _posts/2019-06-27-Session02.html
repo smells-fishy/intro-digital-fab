@@ -45,7 +45,7 @@ simultaneously failed due to the Uno's single core being incapable of running mu
 . Each LED has its own timeOn variable to track how long it has been on in order to calculate when to switch next. (Note: The significance of the unsigned long variable is that Arduino's
 <span markdown="1" style="background-color: lightgray; font-family:Courier New;">millis()</span>function resets after 50 days. An unsigned long integer in Arduino can store 32 bits, or values from 0 to 4,294,967,295. This amount of milliseconds corresponds to 49.7 days.)</p>
 
-<video height="200px" controls>
+<video height="400px" controls>
 	<source src="BLINK.MOV" type="video/mp4">
 </video>
 
@@ -72,7 +72,7 @@ Next, we examined the usage of the Arduino board as a voltmeter. Using the
 command, Arduino can read voltages through the "analog" pins on the board. All that is required is to change the circuit such that the ground wire goes into any one of the analog input slots.
 
 <div>
-<video height="300px" controls>
+<video height="400px" controls>
 	<source src="VOLTMETER.MOV" type="video/mp4">
 </video>
 <img src="VoltmeterArd.png" alt="Arduino Voltmeter" style="height: 300px; width:auto; display:block;">
@@ -107,7 +107,7 @@ For my first project, I'm going to be making a two-piece robotic arm. I won't be
 <img src="scrollsaw.jpg" style="height: 200px; width: auto; display: block;" alt="Scroll saw cut">
 <p>The scroll saw is able to make very tightly curved cuts. Its blade also makes a very fine cut. This makes it useful for precision cutting.</p>
 <p>Next, I chose to construct the circuit that I planned. I used socket-pin and pin-pin wires to construct the servo control circuit. As you can see, the potentiometers are able to control the rotation of the motors.</p>
-<video height="200px" controls>
+<video height="400px" controls>
 	<source src="ROBOARM.MOV" type="video/mp4">
 </video>
 
