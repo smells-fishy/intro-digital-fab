@@ -38,6 +38,51 @@ permalink: /07/
 
 <p>In any case, this was a really interesting experiment. I would like to further explore the idea of making an instrument with the plates, although that may be difficult with my final project, model of Harvard Yard, and attempt to recreate quantum mechanical experiments on a budget on my plate already.</p>
 
+<p>For reference, my code is available for download <a href="sound.zip" download>here</a>.</p>
+
+<p class="mini" id="2" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+
+</div>
+
+<p class="collapsible">Extra Lab! Woah! (July 19)</p>
+
+<div id="3" class="content">
+
+<p>I was so excited to get started with my replication of the "loss of diffraction pattern" experiment that I took an extra lab this week. I came in with the idea to explore how to detect loose electrons from photons colliding with molecules, so I immediately thought capacitor plate and electromagnetic fields.</p>
+
+<p>I started by exploring eletromagnetic field (EMF) sensors. I looked around on the internet and I chanced upon a post on the Arduino Create forum by user justin1445. Although his circuit, program, and project had many flaws, his project was the inspiration for my exploration and therefore inspiration credit should go to him.</p>
+
+<p>This simple EMF sensor required a 330 Ohm resistor, a 100k Ohm resistor, a generic colored LED, and Arduino Uno, and a paperclip. These materials were gathered in the laboratory, and I immediate got to work building the circuit as shown by his schematics.</p>
+
+<img src="emf1.png" style="height: 200px; width: auto; display: block;" alt="The original circuit">
+<img src="emfcode1.png" style="height: 200px; width: auto; display: block;" alt="The original code">
+
+<p>Shown above is justin1445's original circuit and the corresponding code. All credit for this work goes to him. In essence, this is just an antenna wired in parallel to the analog input pin 0 with an LED that is programmed to activate when a current is induced in the antenna by an electromagnetic field. The <span markdown="1" style="background-color: lightgray; font-family:Courier New;">constrain()</span> function in conjunction with the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">map()</span> function essentially behaves as an in-code analog-to-digital converter (ADC). However, this code is flawed. The constrain function already limits the analog inputs to being between 1 and 100, which is less than a tenth of the values readable (from 0 to 1023), which renders the intended PWM output to the LED from pin 11 entirely meaningless, as any signal reading above 100 on the analog input will be ingored. I don't really understand the need for this ADC in the code in any case, but it was included by the author of the project anyway.</p>
+
+<p>This circuit proved to just return 255, so I got to work changing up the circuit. Initially, I was confused by the circuit's function, but Soumya quickly reminded me that the best way to troubleshoot is just to keep it simple. I took out all of the junk and just wired the antenna in parallel to A0 and ground. I also removed the unnecessary ADC functionality from the code. It was at this point that I realized I was looking at a simple RF reciever. I immedately started getting strange outputs, with values rapidly fluctuating between two dynamic bottom and upper limits. The addition of an averaging function didn't help reduce the noise, so I added a delay(1000/60) to correspond to a 60 Hz frequency to cause an aliasing effect. As expected, I got a more stretched sinusoidal wave.</p>
+
+<h4 class="collapsible" style="font-size = 1em;";>Danger: Brain Damage Possible From Viewing This Section. Only Proceed if Experienced in Physics.</h4>
+
+<div id="5" class="content">
+
+<p>The remainder of the lab was spent attempting to construct a low-pass filter. I will go into more detail about what filters are later, but the intention was to filter out the high-frequency electronic noise influencing my antenna.</p>
+
+<h5>Resistor-capacitor (RC) circuits</h5>
+
+<p>What is an RC circuit and what does it have to do with filters? RC circuits are circuits that have a resistor and a capacitor wired in parallel, and they are best known for their role in frequency filters. RC circuits are characterized by the time it takes for their capacitor to be discharged to the initial voltage divided by e, which is represented by the Greek letter &tau; and equal to resistance times capacitance.</p>
+
+<p>The principle of the RC time constant &tau; is significnat because it plays a large role in the calculations for resistor and capacitor ratings needed to filter certain frequencies.</p>
+
+<h5>Low-pass filters</h5>
+
+<p>Low-pass filters are designed to allow only low-frequency data to be read. The simplest
+
+<p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+
+</div>
+
+<p class="mini" id="4" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+
 </div>
 
 <script>
