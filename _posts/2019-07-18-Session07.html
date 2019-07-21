@@ -74,11 +74,20 @@ permalink: /07/
 
 <p>What is an RC circuit and what does it have to do with filters? RC circuits are circuits that have a resistor and a capacitor wired in parallel, and they are best known for their role in frequency filters. RC circuits are characterized by the time it takes for their capacitor to be discharged to the initial voltage divided by e, which is represented by the Greek letter &tau; and equal to resistance times capacitance.</p>
 
-<p>The principle of the RC time constant &tau; is significnat because it plays a large role in the calculations for resistor and capacitor ratings needed to filter certain frequencies.</p>
+<div>
+<img src="RCtau.png" style="height: 200px; width: auto; display: block;" alt="A graph showing tau vs voltage">
+<p>(Image from <a href="https://en.wikipedia.org/wiki/RC_circuit" target="blank">Wikipedia</a>)
+</div>
+
+<p>As you can see, tau occurs when the capacitor voltage is 63% charged. Alternatively, it is when the capacitor voltage is discharged to 37%.</p>
+
+<p>The principle of the RC time constant &tau; is significant because it plays a large role in the calculations for resistor and capacitor ratings needed to filter certain frequencies.</p>
 
 <h5>Low-pass filters</h5>
 
-<p>Low-pass filters are designed to allow only low-frequency data to be read. The simplest
+<p>Low-pass filters are designed to allow only low-frequency data to be read. The simplest low-pass filter is an RC circuit where the antenna is wired in series to a resistor and in parallel to a grounded capacitor.
+
+<img src="lowsche.png" style="height: 200px; width: auto; display: block;" alt="A schematic for a simple RC low-pass filters">
 
 <p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
 
