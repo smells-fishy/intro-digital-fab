@@ -68,8 +68,6 @@ permalink: /07/
 
 <div id="5" class="content">
 
-<p>The remainder of the lab was spent attempting to construct a low-pass filter. I will go into more detail about what filters are later, but the intention was to filter out the high-frequency electronic noise influencing my antenna.</p>
-
 <h5>Resistor-capacitor (RC) circuits</h5>
 
 <p>What is an RC circuit and what does it have to do with filters? RC circuits are circuits that have a resistor and a capacitor wired in parallel, and they are best known for their role in frequency filters. RC circuits are characterized by the time it takes for their capacitor to be discharged to the initial voltage divided by e, which is represented by the Greek letter &tau; and equal to resistance times capacitance.</p>
@@ -85,7 +83,7 @@ permalink: /07/
 
 <p>Low-pass filters are designed to allow only low-frequency data to be read. The simplest low-pass filter is an RC circuit where the antenna is wired in series to a resistor and in parallel to a grounded capacitor.</p>
 
-<img src="lowsche.png" style="height: 200px; width: auto; display: block;" alt="A schematic for a simple RC low-pass filters">
+<img src="lowsche.png" style="height: 200px; width: auto; display: block;" alt="A schematic for a simple RC low-pass filter">
 <p>(Image from <a href="https://en.wikipedia.org/wiki/Low-pass_filter" target="blank">Wikipedia</a>)
 
 <p>This circuit works due to the reactance of the circuit (resistance to change in voltage due to capacitance). Since the low-frequency electromagnetic radiation doesn't switch polarity rapidly, it will be able to slowly charge the capacitor. The capacitor will resist changes in its state (uncharged capacitors tend to stay uncharged), and therefore the low-frequency radiation will be passed to the load, or the analog input in our case. On the other hand, the high frequency radtiation changes polarity rapidly enough that it cannot charge the capacitor and the capacitor will act as a short, leading the high-frequency radiation straight to ground and removing it from the data readings. Another explanation of this phenomenon is that direct current (low frequency EM radiation) doesn't flow well through a capacitor, while alternating current (high frequency EM radiation) does, resulting in a prefered flow to ground for the high-frequency induced current.</p>
@@ -97,13 +95,24 @@ permalink: /07/
 
 <h5>High-pass filters</h5>
 
-<p>High-pass filters are designed to allow only high-frequency data to be read. The simpled high-pass filter is an RC circuit with the antenna wired in series to the capacitor and in parallel to a resistor.</p>
+<p>High-pass filters are designed to allow only high-frequency data to be read. The simpled high-pass filter is an RC circuit with the antenna wired in series to the capacitor and in parallel to a resistor. This can be explained in the same manner as above, and the cutoff frequency formula is the same, but instead it represents the minimum frequency the circuit can read.</p>
+
+<img src="highsche.png" style="height: 200px; width: auto; display: block;" alt="A schematic for a simple RC high-pass filter">
+<p>(Image from <a href="https://en.wikipedia.org/wiki/High-pass_filter" target="blank">Wikipedia</a>)
 
 <p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
 
 </div>
 
 <p class="mini" id="4" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+
+<p>The remainder of the lab was spent attempting to construct a low-pass filter. I will go into more detail about what filters are later, but the intention was to filter out the high-frequency electronic noise influencing my antenna. If the concept of high and low-pass filters is unfamiliar to you, I strongly suggest clicking on teh button above to learn some more about them before continuing.</p>
+
+<p>I wanted to filter out the high-frequency noise that I suspect was coming from the lights and other electronics in the room. Therefore, I had to make a low-pass filter, which would entail a resistor in series with the antenna and a capacitor in parallel.</p>
+
+<img src="lowpass.jpg" style="height: 200px; width: auto; display: block;" alt="My schematic for a simple RC low-pass filter">
+
+<p>For my low-pass filter I used a 300 Ohm resistor and a 1 microfarad capacitor. Once the low-pass filter was added, the readings from the antenna flat-lined. After calculating the cut-off frequency of the filter, I realized that the filter was disposing of everything with a frequency higher than 530Hz, which means the only radiation I can currently pick up is ultra-low radio. Next lab, I'll experiment with making the antenna longer to see if I can't get a stronger reading.</p>
 
 </div>
 
