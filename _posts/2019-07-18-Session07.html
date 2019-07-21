@@ -74,10 +74,8 @@ permalink: /07/
 
 <p>What is an RC circuit and what does it have to do with filters? RC circuits are circuits that have a resistor and a capacitor wired in parallel, and they are best known for their role in frequency filters. RC circuits are characterized by the time it takes for their capacitor to be discharged to the initial voltage divided by e, which is represented by the Greek letter &tau; and equal to resistance times capacitance.</p>
 
-<div>
 <img src="RCtau.png" style="height: 200px; width: auto; display: block;" alt="A graph showing tau vs voltage">
 <p>(Image from <a href="https://en.wikipedia.org/wiki/RC_circuit" target="blank">Wikipedia</a>)
-</div>
 
 <p>As you can see, tau occurs when the capacitor voltage is 63% charged. Alternatively, it is when the capacitor voltage is discharged to 37%.</p>
 
@@ -85,9 +83,16 @@ permalink: /07/
 
 <h5>Low-pass filters</h5>
 
-<p>Low-pass filters are designed to allow only low-frequency data to be read. The simplest low-pass filter is an RC circuit where the antenna is wired in series to a resistor and in parallel to a grounded capacitor.
+<p>Low-pass filters are designed to allow only low-frequency data to be read. The simplest low-pass filter is an RC circuit where the antenna is wired in series to a resistor and in parallel to a grounded capacitor.</p>
 
 <img src="lowsche.png" style="height: 200px; width: auto; display: block;" alt="A schematic for a simple RC low-pass filters">
+<p>(Image from <a href="https://en.wikipedia.org/wiki/Low-pass_filter" target="blank">Wikipedia</a>)
+
+<p>This circuit works due to the reactance of the circuit (resistance to change in voltage due to capacitance). Since the low-frequency electromagnetic radiation doesn't switch polarity rapidly, it will be able to slowly charge the capacitor. The capacitor will resist changes in its state (uncharged capacitors tend to stay uncharged), and therefore the low-frequency radiation will be passed to the load, or the analog input in our case. On the other hand, the high frequency radtiation changes polarity rapidly enough that it cannot charge the capacitor and the capacitor will act as a short, leading the high-frequency radiation straight to ground and removing it from the data readings.</p>
+
+<h5>High-pass filters</h5>
+
+
 
 <p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
 
