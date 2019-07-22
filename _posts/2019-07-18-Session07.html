@@ -64,6 +64,8 @@ permalink: /07/
 
 <p>This circuit ended up only returning 255 with occasional fluctuations. However, the fluctuations indicated there was data being captured, so I got to work changing up the circuit. Initially, I was confused by the circuit's function, but Soumya quickly reminded me that the best way to troubleshoot is just to keep it simple. I took out all of the junk and just wired the antenna in parallel to A0 and ground. I also removed the unnecessary ADC functionality from the code. It was at this point that I realized I was looking at a simple RF reciever. I immedately started getting strange outputs, with values rapidly fluctuating between two dynamic bottom and upper limits. The addition of an averaging function didn't help reduce the noise, so I added a <span markdown="1" style="background-color: lightgray; font-family:Courier New;">delay(1000/60)</span> (1000/60 correspondes to 1/60th of second) to correspond to a 60 Hz frequency to cause an aliasing effect. As expected, I got a more stretched sinusoidal wave.</p>
 
+<img src="antenna.jpg" style="height: 200px; width: auto; display: block;" alt="My original antenna">
+
 <h4 class="collapsible" style="font-size = 1em;";>Danger: Brain Damage Possible From Viewing This Section. Only Proceed if Experienced in Physics.</h4>
 
 <div id="5" class="content">
@@ -110,11 +112,54 @@ permalink: /07/
 
 <img src="lowpass.jpg" style="height: 200px; width: auto; display: block;" alt="My schematic for a simple RC low-pass filter">
 
-<p>For my low-pass filter I used a 300 Ohm resistor and a 1 microfarad capacitor. Once the low-pass filter was added, the readings from the antenna flat-lined. After calculating the cut-off frequency of the filter, I realized that the filter was disposing of everything with a frequency higher than 530Hz, which means the only radiation I can currently pick up is ultra-low radio. Next lab, I'll experiment with making the antenna longer to see if I can't get a stronger reading.</p>
+<p>For my low-pass filter I used a 300 Ohm resistor and a 1 microfarad capacitor. Once the low-pass filter was added, the readings from the antenna flat-lined. After calculating the cut-off frequency of the filter, I realized that the filter was disposing of everything with a frequency higher than 33Hz, which means the only radiation I can currently pick up is super-low frequency radio. Next lab, I'll experiment with making the antenna longer to see if I can't get a stronger reading.</p>
 
 <p>Huge thanks to Soumya for helping me get off the ground and teaching me all about RC circuits and pass filters.</p>
 
 <p class="mini" id="4" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+
+</div>
+
+<p class="collapsible">Lab (July 22)</p>
+
+<div id="7" class="content">
+
+<p>Today during lab, I refined my antenna. Through various forms of trial and error, I was able to produce two coils that are able to recieve various frequencies at relatively low amplitudes.</p>
+
+<p>At first, I worked toward strengthening the antenna that I had made on Friday. I started by trying to change the RC low-pass filter to allow higher frequencies. I got the highest allowed frequency up to 5 MHz using a 330 Ohm resistor and a 1 pF (picofarad) capacitor, but unfortunately this was past the limits of the wave generators we have on hand in the lab.</p>
+
+<p>Furthermore, I noticed some strange behavior. I was not initially able to replicate the sinusoidal wave I obtained by sampling ambient electric noise at a rate of 60 Hz. However, once I moved to the back of the lab, I was able to recreate that same wave, which suggests that the most likely reason for the initial failure was interference from everybody's Arduino boards running at once.</p>
+
+<img src="initwave.jpg" style="height: 200px; width: auto; display: block;" alt="My initial results">
+<img src="sinwave.jpg" style="height: 200px; width: auto; display: block;" alt="The sine wave recreated">
+
+<p>In the back of the lab, I found the function generators. These were pretty powerful instruments designed to output waves of a certain frequency and altitude. I used the PASCO function generators to test my antenna.</p>
+
+<p>The first thing that I did was test the antenna's capability to pick up a 5 Hz signal. This was accomplished by waving the 5V lead of the signal generator around the antenna while grounding it in parallel to the antenna. Unfortunately, this yielded no results, which lead me to the conclusion that the antenna was not long enough, since antennas should be roughly 1/2 or 1/4 of the wavelength they are intended to capture.</p>
+
+<p>In order to get a longer antenna, I went to the material stockpile and grabbed a metal dowel and vertically clamped to the side of the table I was working on. Then, I wrapped a wire around the pole (ensuring that only the tip of the lead was exposed to prevent any shorts) and wired it to my Arduino. Surprisingly, this did produce some sporadic readings when it was exposed to the 5V lead of the signal generator, but it was an extraordinary weak signal.</p>p
+
+<img src="antenna2.jpg" style="height: 200px; width: auto; display: block;" alt="The metal rod antenna">
+
+<p>Rob suggested that I make coils of wires around wooden dowels in order to capture the signals better. This was accomplished by inserting the wooden dowel into the chuck of a hand drill, tightening the chuck around the dowel, and then driving the dowel in order to produce tight coils.</p>
+
+<img src="dontdo.jpg" style="height: 200px; width: auto; display: block;" alt="Supreme drill technique">
+
+<p>This antenna worked significantly better than the previous two iterations. When the reciever was exposed to a coil trasmitting a signal, it was able to pick it up pretty well. Although the wave was not continuous, you could see the approximation of the wave shape in the readout.</p>
+
+<p>Now that I had a working device, I worked to calibrate it. I decided to calibrate for amplitude because I quickly found my antenna was able to capture a reasonably large range of frequencies. In order to calibrate for amplitude, I moved the amplitude on the function generator and observed the value returned by the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogRead()</span> function. I started by calibrating for the mimimum amplitude my antenna could capture. Curiously, I found nothing displayed at very low amplitudes. In order to find the minimum, I rotated the knob until I got a reading. This was fonud to be 50% of the maximum amplitude the wave function generator could output.</p>
+
+<img src="minamp.jpg" style="height: 200px; width: auto; display: block;" alt="The minimum amplitude measurable">
+<img src="minmach.jpg" style="height: 200px; width: auto; display: block;" alt="The amplitude setting">
+
+<p>The minimum peak amplitude the antenna can recieve is 0.00977 volts from a raw output of 2.0, calculated by mapping the maximum 5V read of the analog pin to the 1024 possible values and then multiplying by 2.</p>
+
+<p>I also attempted to determine if there was a maximum amplitude the antenna could pick up. However, I just found that the maximum amplitude the machine can output is 12, or 0.0586 V, calculated by mapping the maximum 5V read of the analog pin to the 1024 possible values and then multiplying by 12.</p>
+
+<img src="maxamp.jpg" style="height: 200px; width: auto; display: block;" alt="The maximum amplitude output by the machine">
+<img src="maxmach.jpg" style="height: 200px; width: auto; display: block;" alt="The maximum amplitude setting">
+
+<p>I also
 
 </div>
 
