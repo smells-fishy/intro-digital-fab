@@ -1,6 +1,6 @@
 int var = 0;
 int sum = 0;
-int N_samples = 1000;
+int N_samples = 100;
 
 void setup() {
   Serial.begin(9600);
@@ -19,7 +19,7 @@ void loop() {
  /*for (int i = 0; i < N_samples; i++){        //Measure response of conductor 2.
    sum += var;                       //Sums up N_samples of these measurements.
  }
- Serial.println(var/N_samples);*/
+ Serial.print(sum);*/
  Serial.println(var);
  //delay(1000/10); //Aliasing effect feature
 }
