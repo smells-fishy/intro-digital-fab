@@ -112,7 +112,9 @@ For my first project, I'm going to be making a two-piece robotic arm. I won't be
 </video>
 
 
-<p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p>
+<!-- <p class="mini" id="6" style="color: blue; font-size: 16px; padding:0px;">Minimize</p> -->
+
+<a href="#1" class="minimize" id="6">Minimize</a>
 
 </div>
 
@@ -152,6 +154,21 @@ For my first project, I'm going to be making a two-piece robotic arm. I won't be
 	    }
 	  });
 	}
+	var minimize = document.getElementsByClassName("minimize");
+	var i;
 
+	for (i = 0; i < mini.length; i++) {
+		minimize[i].addEventListener("click", function() {
+			var id = this.id - 1;
+	    var content = document.getElementById(id);
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+		});
+	}
 
 </script>
