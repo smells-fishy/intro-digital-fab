@@ -22,7 +22,7 @@ permalink: /03/
 
 <p>My next project will be to create a press-fit box.</p>
 
-<a href="#1" class="minimize" id="2" style="display: block;">Minimize</a>
+<a href="#1" class="mini" id="2" style="display: block;">Minimize</a>
 
 </div>
 
@@ -52,7 +52,7 @@ permalink: /03/
 
 <p>After cutting, I found that one of the pieces was improperly dimensioned because I didn't account for the thickness of the cardboard. Unfortunately, I ran out of time during lab, so the project will have to be picked up next time. In the meantime, the CAD file will be fixed and redimensioned.</p>
 
-<a href="#1" class="minimize" id="4" style="display: block;">Minimize</a>
+<a href="#1" class="mini" id="4" style="display: block;">Minimize</a>
 
 </div>
 
@@ -72,7 +72,7 @@ permalink: /03/
 	<source src="PROTO.MOV" type="video/mp4">
 </video>
 
-<a href="#1" class="minimize" id="6" style="display: block;">Minimize</a>
+<a href="#1" class="mini" id="6" style="display: block;">Minimize</a>
 
 </div>
 
@@ -111,23 +111,6 @@ permalink: /03/
 				this.classList.toggle("active");
 	    }
 	  });
-	}
-
-	var minimize = document.getElementsByClassName("minimize");
-	var i;
-
-	for (i = 0; i < mini.length; i++) {
-		minimize[i].addEventListener("click", function() {
-			var id = this.id - 1;
-	    var content = document.getElementById(id);
-	    if (content.style.display === "block") {
-	      content.style.display = "none";
-				this.classList.toggle("active");
-	    } else {
-	      content.style.display = "block";
-				this.classList.toggle("active");
-	    }
-		});
 	}
 
 </script>
