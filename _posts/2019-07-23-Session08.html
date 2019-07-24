@@ -1,0 +1,108 @@
+---
+layout: post
+title:  "08: CNC Milling"
+permalink: /08/
+---
+
+<p class="collapsible">Lab (July 24)</p>
+
+<div id="1" class="content">
+
+<p>Today was CNC milling day, which means that we all got to play with the ShopBot. Lana and I worked together to create a hexagonal bowl and an unrealized tapeworm.</p>
+
+<p>Our hexagonal bowl was developed in Fusion 360 using the "draw cirumscribed polygon" tool and then extruding with a taper angle. Then, all of the rough edges were filleted to create a smooth surface approximating that of a bowl.</p>
+
+<img src="notgross.png" alt="The hexagon bowl" style="height: 300px; width:auto; display:block;">
+
+<p>On the other hand, our tapeworm friend was created using a center-diameter circle that was swept parallel to a spline, which created the squiggly geometry that characterizes our favorite parasite.<p>
+
+<div>
+<img src="tapeworm1.png" alt="The tapeworm from the side" style="height: 300px; width:auto;">
+<img src="tapeworm.png" alt="The tapeworm from the top" style="height: 300px; width:auto;">
+</div>
+
+<p>All of the STL files are available for download <a href="stls.zip" download>here</a>.</p>
+
+<p>Once we got to the lab, we got started cutting the foam mold using the CNC mill. For the equipment specs, we used a half-inch bit with the spindle running at 12,000 rpm. We started by importing the file into the software.</p>
+
+<img src="hexagon1.jpg" alt="The hexagon bowl upon importing" style="height: 300px; width:auto; display:block;">
+
+<p>Next, we plotted the roughing cut and the two perpendicular finishing cuts. By doing a second finishing cut at a 90 degree angle, we can smooth out the mold even more so that it most closely approximates our desired volume.</p>
+
+<div>
+<img src="rough1.jpg" alt="The plotted roughing cut without cleanup" style="height: 300px; width:auto; ">
+<img src="rough.jpg" alt="The plotted roughing cut with cleanup" style="height: 300px; width:auto;">
+<img src="finishing.jpg" alt="The result of two finishing cuts" style="height: 300px; width:auto;">
+</div>
+
+<p>Upon starting the cut, the CNC machine demonstrated its status as our future robotic overlord, displaying its extreme precision, speed, and intelligence as it annihilated foam to our whims. What was really nice about the machine is that it takes an additional cut around the hexagon in order to clean up the jagged edges that it initially cuts. This video is a recording of the CNC machine at work on the roughing cut.</p>
+
+<video height="400px" controls>
+	<source src="rough.MOV" type="video/mp4">
+</video>
+
+<p>As you can see, the roughing cut went pretty smoothly until we got to the final cleanup step, when it started cutting into the base of the mold. We (as in Rob) immediately stopped the cut and realized that we forgot we added a -10 mm vertical offset. This resulted in our mold not having a real base, but that's okay. In order to compensate for our small mistake, we added some extra hot glue to the base and then proceeded with the finishing cut.</p>
+
+<video height="400px" controls>
+	<source src="finish.MOV" type="video/mp4">
+</video>
+
+<p>The finishing cut really helped smooth out the bowl! Now that we were done with the mold, we could begin the process of applying the burlap-epoxy composite to the mold.</p>
+
+<p>The first step was to cut out the burlap. We opted to cut the burlap in circumscribing circles for the hexagon and then to add darts to allow for a tighter fit. In order to dimension the hexagon, we measured the base across opposing vertices to obtain the circle diameter and then added 5 cm lines as darts. You can download the dxf file for the burlap <a href="darts.dxf" download>here</a>.</p>
+
+<div>
+<img src="darts.png" alt="The sketch for the darts" style="height: 300px; width:auto;">
+<img src="dart1.jpg" alt="The darts after cutting" style="height: 300px; width:auto; ">
+</div>
+
+<p>Next, we laser cut the burlap.</p>
+
+<img src="cut.jpg" alt="The burlap after cutting" style="height: 300px; width:auto; display:block;">
+
+<p>Now, it was for the fun times (applying the epoxy). We used a biological-compound-based two-part epoxy that carried a distinct odor of fish. In order to prepare the epoxy, we combined Part A and Part B in a 2:1 ratio and mixed thoroughly. Next, we applied it using a tongue depressor and a squeegee for spreading it out.</p>
+
+<div>
+<img src="mix.jpg" alt="Mixing the epoxy components" style="height: 300px; width:auto; display:block;">
+<img src="notgross.png" alt="The hexagon bowl" style="height: 300px; width:auto; display:block;">
+<img src="notgross.png" alt="The hexagon bowl" style="height: 300px; width:auto; display:block;">
+</div>
+
+</div>
+
+<script>
+	//Expanding script
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+	  });
+	}
+	//Minimizing script
+	var mini = document.getElementsByClassName("mini");
+	var i;
+
+	for (i = 0; i < mini.length; i++) {
+	  mini[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+			var id = this.id - 1;
+	    var content = document.getElementById(id);
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
+
+</script>
