@@ -18,12 +18,12 @@ permalink: /09/
 
 <p>Based on my knowledge on the operation of computer fans, I concluded that the blue and green wires had to be signal and speed input. In order to test this, I made a quick debugging code with Arduino that can be downloaded <a href = "fan_test.ino" download>here</a>.</p>
 
-<img src="fancode.png" alt="The debugging code" style="width: 300pxl height: auto;">
+<img src="fancode.png" alt="The debugging code" style="width: 300px; height: auto;">
 
 <p>I got lucky and found out that the green was the output on my first try, which meant that the blue was the speed input. This was corroborated by the serial monitor output from A0 and the speed change from changing the speed input from 255 to 1 through PWM pin 6.</p>
 
 <video height="400px" controls>
-	<source src="rough.MOV" type="video/mp4">
+	<source src="fan.MOV" type="video/mp4">
 </video>
 
 <p>The next step was to add some speed control into the circuit. I immediately thought of the potentiometer because it most closely approximates the knob-style speed control on the fans we have in our dorms. I opted to wire the potentiometer to the 5V, A1, and ground in order to keep the two branches of the circuit separate and to prevent the resistance of the potentiometer from interfering with the operation of the fan.</p>
@@ -32,9 +32,24 @@ permalink: /09/
 
 <p>Below, you can see my code. As you can see, it's relatively simple but provides large-range functionality and control. The code is downloadable <a href="fan.ino" download>here</a>.</p>
 
-<img src="fancode1.png" alt="The fan code" style="width: 300pxl height: auto;">
+<img src="fancode1.png" alt="The fan code" style="width: 300px; height: auto;">
 
-<p>Next, I worked to design a casing for the fan
+<p>Below, you can see the potentiometer speed control in action. It's hard to see the speed change, but it's visible if you look closely.</p>
+
+<video height="400px" controls>
+	<source src="potspd.MOV" type="video/mp4">
+</video>
+
+<p>Next, I worked to design a casing for the fan in Fusion 360. I found that the best way to produce these components was through a combination of 3D printing and subtractive manufacturing. I developed two STL files with gratings and connectors in order to hold the fan together.</p>
+
+<div>
+<img src="sketch1.png" alt="The fan code" style="height: auto; width:300px;">
+<img src="model1.png" alt="The fan code" style="height: auto; width:300px;">
+<img src="sketch2.png" alt="The fan code" style="height: auto; width:300px;">
+<img src="model2.png" alt="The fan code" style="height: auto; width:300px;">
+</div>
+
+
 
 </div>
 
