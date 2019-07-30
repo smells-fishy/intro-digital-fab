@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "09: Electronic Output Devices"
+permalink: /09/
+---
+
+<p class="collapsible">Lab (July 29)</p>
+
+<div id="1" class="content">
+
+<p>For my output device, I made the ultimate tool for curing heat exhaustion in the blazingly hot Massachusetts desert known as Cambridge.</p>
+
+<p>I initially was looking for random spare parts when Jonathan found a large Intel computer fan with a cool looking heat sink on the back. He handed it over to me and I immediately saw the potential for me to cure my heat-related distress.</p>
+
+<p>The first thing to do was to figure out what each of the wires on the 4-pin connector did, especially considering that the wire colors were black, yellow, blue, and green. The most important wires to locate were the ground and the high voltage wires so I could run the fan and find out what the other wires did. This was accomplished through trial and error. Unfortunately, there is a slight delay between the application of a voltage and the spinning of the fan, which set back progress. After multiple failures, I discovered that the black wire was ground (as usual), and yellow was the 12V power.</p>
+
+<img src="fan.jpg" alt="The computer fan spinning around" style="width: 300px; height:auto;">
+
+<p>Based on my knowledge on the operation of computer fans, I concluded that the blue and green wires had to be signal and speed input. In order to test this, I made a quick debugging code with Arduino that can be downloaded <a href = "fan_test.ino" download>here</a>.</p>
+
+<img src="fancode.png" alt="The debugging code" style="width: 300pxl height: auto;">
+
+<p>I got lucky and found out that the green was the output on my first try, which meant that the blue was the speed input. This was corroborated by the serial monitor output from A0 and the speed change from changing the speed input from 255 to 1 through PWM pin 6.</p>
+
+<video height="400px" controls>
+	<source src="rough.MOV" type="video/mp4">
+</video>
+
+<p>The next step was to add some speed control into the circuit. I immediately thought of the potentiometer because it most closely approximates the knob-style speed control on the fans we have in our dorms. I opted to wire the potentiometer to the 5V, A1, and ground in order to keep the two branches of the circuit separate and to prevent the resistance of the potentiometer from interfering with the operation of the fan.</p>
+
+<p>In order to properly connect the analog input from the potentiometer to the analog output of the PWM, I had to make use of Arduino's very helpful <span markdown="1" style="background-color: lightgray; font-family:Courier New;">map()</span> function. This function has the syntax <span markdown="1" style="background-color: lightgray; font-family:Courier New;">map(variable, fromLow, fromHigh, toLow, toHigh)</span>, which is very convenient for scaling down/up variables with large ranges (such as the analog inputs and outputs). I used <span markdown="1" style="background-color: lightgray; font-family:Courier New;">map(input, 0, 1023, 0, 255)</span> in order to transform the 1023 possible values from the potentiometer input into 255 possible values for the PWM analog output.</p>
+
+<p>Below, you can see my code. As you can see, it's relatively simple but provides large-range functionality and control. The code is downloadable <a href="fan.ino" download>here</a>.</p>
+
+<div>
+
+<img src="fancode1.png" alt="The fan code" style="width: 300pxl height: auto;">
+
+</div>
+
+</div>
