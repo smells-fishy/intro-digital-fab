@@ -53,6 +53,38 @@ permalink: /09/
 
 <img src="print.jpg" alt="The print" style="width: 300px; height: auto;">
 
+<p>The next morning, I went to the lab to finish up the fan. The first thing that I did was check if the 3D printed pieces fit together well or not. I found out that the poles were too large for the holes, so I used a 21/64 inch drill bit to slightly widen the holes from 0.32 to 0.325 to accomodate for the poles.</p>
+
+<p>Next, I assembled the initial structure by placing the fan into the front structure (the one with the poles) and made sure everything fit nicely. I got a really tight fit, so I decided to proceed to soldering.</p>
+
+<img src="init.jpg" alt="The print" style="width: 300px; height: auto;">
+
+<p>In order to make the fan more compact, I decided to use an Arduino nano for the main board. I had soldered the pins to the board on the day prior, and now I was going to solder the wires from the fan and potentiometer to the pins.</p>
+
+<p>I started by clipping off roughly half of the wire on the fans. Then, I twisted together the loose ends for ease of soldering. For the potentiometer, I used 24-gauge wires and soldered them directly onto the potentiometer. Lastly, I soldered the wires to the on-board pins, making sure to <del>breathe in as much of the</del> avoid the fumes as much as possible.</p>
+
+<img src="solder.png" alt="Sketch 1" style="height: auto; width:300px;">
+<img src="solder1.png" alt="Model 1" style="height: auto; width:300px;">
+
+<p>Now that the electronics assembly was completed, I could put together the final product. I used a large amount of hot glue to join the back piece and the front piece, and then mounted the potentiometer to the back piece using hot glue as well.</p>
+
+<p>Next, I had to upload the code to the Arduino Nano (Spoiler alert: this did not work). Initially, I tried uploading and then realized my board was set to the Arduino Uno.</p>
+
+<img src="Uno.png" alt="Model 1" style="height: auto; width:300px;">
+<img src="nano.png" alt="Model 1" style="height: auto; width:300px;">
+
+<p>I changed my board to the Arduino Nano and then tried again, but I got this error:</p>
+
+<img src="fail.png" alt="Model 1" style="height: auto; width:300px;">
+
+<p>I tried to change the processor to the ATMega328P Old Bootloader, but this didn't work. I also tried to change the programmer, but this also had no effect on the uploading process.</p>
+
+<p>Luckily for me, Lana popped into the room <i>right before class</i> and her Mac is able to upload to the Nano board. My fan is now humming away happily.
+
+<video height="400px" controls>
+	<source src="fanfinal.MOV" type="video/mp4">
+</video>
+
 <a href="#1" class="mini" id="4" style="display: block;">Minimize</a>
 
 </div>
