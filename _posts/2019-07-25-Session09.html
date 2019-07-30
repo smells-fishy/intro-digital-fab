@@ -32,10 +32,45 @@ permalink: /09/
 
 <p>Below, you can see my code. As you can see, it's relatively simple but provides large-range functionality and control. The code is downloadable <a href="fan.ino" download>here</a>.</p>
 
-<div>
-
 <img src="fancode1.png" alt="The fan code" style="width: 300pxl height: auto;">
 
-</div>
+<p>Next, I worked to design a casing for the fan
 
 </div>
+
+<script>
+	//Expanding script
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+	  });
+	}
+	//Minimizing script
+	var mini = document.getElementsByClassName("mini");
+	var i;
+
+	for (i = 0; i < mini.length; i++) {
+	  mini[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+			var id = this.id - 1;
+	    var content = document.getElementById(id);
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
+
+</script>
