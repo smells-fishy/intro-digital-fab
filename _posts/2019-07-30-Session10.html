@@ -45,6 +45,7 @@ permalink: /10/
 <p>Upon setting, I had to get the mold out of the container. This was accomplished by separating it from the box edges using a box cutter. However, the tape that I used to join two sides of the box had infiltrated the mold, so that had to be removed.</p>
 
 <img src="mold.jpg" alt="The liberated mold" style="height: auto; width:300px;">
+<img src="mold3.jpg" alt="The liberated mold" style="height: auto; width:300px;">
 
 <p>I planned on casting plaster, so I had to prepare it. I found some old liquidy plaster and decided to thicken it with powder and use that. It took about a half cup of plaster to thicken the plaster to the desired consistency, which was very viscous.</p>
 
@@ -53,5 +54,47 @@ permalink: /10/
 <img src="cast.jpg" alt="The casted plaster" style="height: auto; width:300px;">
 
 <a href="#1" class="mini" id="2" style="display: block;">Minimize</a>
+
+</div>
+
+<p class="collapsible">Final Project Progress</p>
+
+<div id="3" class="content">
+
+<p>This is the first time I have worked on my final project all semester, so we're off to a strong start.</p>
+
+<p>Today, I changed my final project idea from the kinetic sculpture to a fan that follows you around/can be remotely commanded to move. This project will use the fan that I produced last class as a base to build off of.</p>
+
+<p>The first thing that I did was to take off the back piece of the fan to allow for changing of the circuit. Unfortunately, when I did this, one of the poles snapped. Fortunately, Jonathan had the incredible insight to use superglue and clay to fix the structure. The structure is currently sitting in the lab, allowing for the cyanoacrylate glue to set under pressure.</p>
+
+<img src="glue.jpg" alt="The cyanoacrylate used" style="height: auto; width:300px;">
+<img src="glue1.jpg" alt="The gluing setup" style="height: auto; width:300px;">
+
+<p>Next, I decided to start working on my remote control for the fan. I grabbed two RF24 chips, some pin-socket wires, and some socket-socket wires and got to work.</p>
+
+<p>The first thing was to develop the user interface for speed control using buttons. I wired up two buttons in parallel from 5V to ground with the signal wires running in parallel to ground to pins 2 and 4, and programmed a script that would read from pin 2. It is important to note that this setup is erroneous, as it results in a 5V to ground short-circuit that a pull-up resistor cannot prevent.</p>
+
+<img src="button.jpg" alt="The button circuit" style="height: auto; width:300px;">
+<img src="code.png" alt="The button code" style="height: auto; width:300px;">
+
+<video height="400px" controls>
+	<source src="button.MOV" type="video/mp4">
+</video>
+
+<p>While testing, it was not immediately apparent that anything was wrong. However, when I later held down the button, I noticed that the lights would turn off, indicating a short.</p>
+
+<p>Everything seemed to work well, so I moved on to the RF modules. I made extensive use of Lana's documentation to figure out the pinout of the RF tx/rx chips.</p>
+
+<img src="pinout.png" alt="The nRF24 chip pinout" style="height: auto; width:300px;">
+<img src="arduinopin.jpg" alt="The corresponding arduino pinout" style="height: auto; width:300px;">
+
+<p>I wired the RF chips to an Arduino Uno and an Arduino Nano using the same colors of wire as shown in the diagram (except using white instead of light green for SCK).</p>
+
+<img src="unorf.jpg" alt="The button circuit" style="height: auto; width:300px;">
+<img src="nanorf.jpg" alt="The button circuit" style="height: auto; width:300px;">
+
+
+
+<a href="#1" class="mini" id="4" style="display: block;">Minimize</a>
 
 </div>
