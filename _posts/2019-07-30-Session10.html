@@ -90,11 +90,48 @@ permalink: /10/
 
 <p>I wired the RF chips to an Arduino Uno and an Arduino Nano using the same colors of wire as shown in the diagram (except using white instead of light green for SCK).</p>
 
-<img src="unorf.jpg" alt="The button circuit" style="height: auto; width:300px;">
-<img src="nanorf.jpg" alt="The button circuit" style="height: auto; width:300px;">
+<img src="unorf.jpg" alt="The RF circuit on the Uno" style="height: auto; width:300px;">
+<img src="nanorf.jpg" alt="The RF circuit on the Nano" style="height: auto; width:300px;">
 
 <p>The remainder of class was spent coding. Unfortunately, not much progress was made in this direction, as my code changed relatively little.</p>
 
 <a href="#1" class="mini" id="4" style="display: block;">Minimize</a>
 
 </div>
+
+<script>
+	//Expanding script
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+	  });
+	}
+	//Minimizing script
+	var mini = document.getElementsByClassName("mini");
+	var i;
+
+	for (i = 0; i < mini.length; i++) {
+	  mini[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+			var id = this.id - 1;
+	    var content = document.getElementById(id);
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
+
+</script>
