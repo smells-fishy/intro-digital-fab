@@ -1,0 +1,82 @@
+---
+layout: post
+title:  "How to Break Almost Anything (in Fusion)"
+permalink: /13/
+---
+
+<p>This page is a compilation of the multitude of ways that I have managed to break Autodesk's widely acclaimed Fusion 360. Note that not all of these are particularly well documented, due to issues with replication.</p>
+
+<p class="collapsible">Disappearing bodies</p>
+
+<div id="1" class="content">
+
+<p>Disappearing bodies are probably the scariest of all of these bugs. Fortunately, it generally occurs under very specific circumstances: when you save a file and then quit Fusion while it is updating. In order to fix this issue, you just need to restore a previous version of your file and start working again. Be sure to not save and exit until the update is done downloading.</p>
+
+<a href="#1" class="mini" id="2" style="display: block;">Minimize</a>
+
+</div>
+
+<p class="collapsible">Floating Browser</p>
+
+<div id="3" class="content">
+
+<p>Sometimes, it is possible to get the brower to stay on the screen even after Fusion is minimized. This bug seems to be relatively random, but occures most consistently when you manually minimize the window right after alt-tabbing (or cmd-tabbing for Mac) out of the window and then reopening. Occasionally, this will occur when you alt-tab, which is annoying because it gets in the way. If you click on the browser, Fusion will show up once again.</p>
+
+<img src="browser.png" alt="The browser staying on screen" style="height: auto; width:300px;">
+
+<video height="400px" controls>
+	<source src="browsebug.MOV" type="video/mp4">
+</video>
+
+<a href="#1" class="mini" id="4" style="display: block;">Minimize</a>
+
+</div>
+
+<p class="collapsible">Names get cut off</p>
+
+<div id="5" class="content">
+
+<p>I just chanced upon this one after reaching 100 bodies in a single file. Apparently, Fusion isn't smart enough to add the extra character space so it ends up... taking? I'm not quite sure how this one works but those are the circumstances under which I encountered this issue. Solution: resize the browser.</p>
+
+<img src="name.png" alt="The browser staying on screen" style="height: auto; width:300px;">
+
+<a href="#1" class="mini" id="6" style="display: block;">Minimize</a>
+
+</div>
+
+<script>
+	//Expanding script
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+				this.classList.toggle("active");
+	    } else {
+	      content.style.display = "block";
+				this.classList.toggle("active");
+	    }
+	  });
+	}
+	//Minimizing script
+	var mini = document.getElementsByClassName("mini");
+	var i;
+
+	for (i = 0; i < mini.length; i++) {
+	  mini[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+			var id = this.id - 1;
+	    var content = document.getElementById(id);
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
+
+</script>
