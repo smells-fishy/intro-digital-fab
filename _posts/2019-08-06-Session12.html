@@ -94,6 +94,55 @@ permalink: /12/
 
 </div>
 
+<p class="collapsible">Lab (July 31)</p>
+
+<div id="3" class="content">
+
+<p>Today was the day when I officially changed my final project idea.</p>
+
+<p>During Wednesday lab on July 31, I worked on getting RF chips to communicate properly, which is key to the remote control aspect of my project. For this project, I chose to use the nRF24 chips in the lab, which have an 8-pin pinout.</p>
+
+<img src="pinout.png" alt="The nRF24 chip pinout" style="height: auto; width:300px;">
+<img src="arduinopin.jpg" alt="The corresponding arduino pinout" style="height: auto; width:300px;">
+
+<p>The above images were found online both on Lana's documentation and on Google Images. These came in very helpful when wiring up the RF modules.</p>
+
+<p>In order to incorporate the RF modules into the circuit, I had to take off the gratings to allow access to the circuitry. However, it was at this moment that the structural stress the fan's mounting points overwhelmed the integrity of the 3D-printed material. When I was removing the top piece, one of the poles cracked along the joint with the base. I attempted to fix the issue with superglue, but this proved ineffective when it broke again 10 minutes later.</p>
+
+<img src="glue.jpg" alt="The cyanoacrylate used" style="height: auto; width:300px;">
+
+<p>Jonathan had the honestly brilliant idea to fill the empty space in the infill with clay to provide extra surface area for gluing. This was done, and then the piece was placed under weight pressure from a voltmeter to allow for better joining.</p>
+
+<img src="glue1.jpg" alt="The gluing setup" style="height: auto; width:300px;">
+
+<p>Now that the basis for the fan's structure was repaired, I could get to work prototyping a rudimentary remote control. I obtained two RF24 chips, two buttons, and some pin/socket wires and got to work on a breadboard.</p>
+
+<p>The first thing I did was make a user interface for my remote using two buttons. I wired two buttons in parallel from 5V to ground with the signal wires running in parallel to ground into pins 2 and 4, and wrote a <a href="remote.ino" download>program</a> that would read from pin 2 using the on-board pull-up resistors. It is important to note that this setup is incorrect, as it results in a 5V to ground short-circuit through the activated button that a pull-up resistor cannot prevent. This prevents other functions from bein executed as it results in a board reset.</p>
+
+<img src="button.jpg" alt="The button circuit" style="height: auto; width:300px;">
+<img src="code.png" alt="The button code" style="height: auto; width:300px;">
+
+<video height="400px" controls>
+	<source src="button.MOV" type="video/mp4">
+</video>
+
+<p>However, while testing, everything seemed to work as planned, as the serial monitor kept a consistent output of data. However, when I later held the button for an extended period of time, I discovered that the board turns off, cluing me into a short in the circuit.</p>
+
+<p>In the meantime, I moved on to making the RF chips work. I made extensive use of Lana's documentation on the wiring of the chips. I used the diagrams shown above to wire the RF chips to an Uno and a Nano, following every detail down to the colors (with the exception of white for SCK).</p>
+
+<img src="unorf.jpg" alt="The RF circuit on the Uno" style="height: auto; width:300px;">
+<img src="nanorf.jpg" alt="The RF circuit on the Nano" style="height: auto; width:300px;">
+
+<p>The remainder of the lab was spent coding. The code was largely based off of <a href="example_radio.zip" download>the example tx/rx code</a>. The code aimed to simply send one of two signals when the corresponding button was pressed, and then the signal would be recieved and printed to the serial monitor by the recieving node.</p>
+
+<p>I wrote the <a href = "radio.ino" download>transmitter code</a> first. I confirmed that this code worked because the program consistently returned failed when the button was pressed, which meant that the code was working properly, but there wasn't a good receiving node to transmit to.</p>
+
+<p>Unfortunately, I had no similar success with the receiving node. The <a href="fan_init.ino" download>receiving program</a> would not recieve properly, and it also outputted "strange numbers," which I would later discover to be the output from <span markdown="1" style="background-color: lightgray; font-family:Courier New;">Serial.println(output)</span>.</p>
+
+<a href="#3" class="mini" id="4" style="display: block;">Minimize</a>
+
+</div>
+
 <script>
 	//Expanding script
 	var coll = document.getElementsByClassName("collapsible");
