@@ -1,0 +1,95 @@
+---
+layout: post
+title:  "Final Project"
+permalink: /12/
+---
+
+<h4 style="color:orange">The fan: an episodic journey</h4>
+
+<p>This page is dedicated to my final project, both progress and setbacks. Initially, I had the idea to make a kinetic sculpture for my final project, but I have since changed it to be a fan that has a remote control for both speed and also movement (wow!)</p>
+
+<p>Previously, I made a prototype for my kinetic sculpture using two DC motors that allowed for rotational motion along a common axis. This can be found <a href=".../03">here</a>. I won't copy it over here because I want to focus on my true final project on this page.</p>
+
+<p>The first step on my path toward the fan was to make a working fan apparatus. I was initially inspired to do this due to a certain fire in Thayer Hall and the following sequence of bad weather events which resulted in my room being approximately 100 times hotter than it usually is.</p>
+
+<p>My mini fan is constructed using an Intel computer fan, a 12V power supply, Arduino boards, wires, solder, some pin/socket wires, love, and kisses. Listed below are the times that I worked on my project and the progress that I made during those sessions.</p>
+
+<p class="collapsible">Lab (July 29), Tuesday Morning (July 30)</p>
+
+<div>
+
+<p>The first step was to consider how to make the fan. At first, I had the idea to make the fan components from a 3D-printed blade assembly and a brushless DC motor, but Jonathan found a 12V Intel desktop fan, which I couldn't resist using.</p>
+
+<p>The computer fan had very strange wire coloring standards (black, yellow, green, blue?), so I had to figure out what each wire did. The first step was to find out which wire was 12V and which wire was ground. This was done through the process of trial and error using a power supply. Unfortunately, the fan takes some time to "uptake" the voltage from the power supply and start spinning, so this returned false negatives that set back progress a bit. After many iterations, I found that the black was ground (as usual) and the yellow was voltage (as opposed to signal).</p>
+
+<img src="fan.jpg" alt="The computer fan spinning around" style="width: 300px; height:auto;">
+
+<p>However, this still left the enigma of what the blue and green wires did. I suspected that they were signal wires, so I made a quick <a href="fan_test.ino" download>program</a> that would look for data coming out of one of them using <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogRead()</span> and try to send data over the other using <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogWrite()</span>. Since the wires are connected to a circuit board mounted on the motor, the choice is not arbitrary as each wire has a specified purpose.</p>
+
+<img src=fancode.png alt="The test code" style="width: 300px; height:auto;">
+
+<p>I got lucky on the first try and determined that the blue wire was the signal wire and the green was the speed feedback. Now that I know the functions of all of the wires, I could start attempting speed modulation. Below, you can see a video of me changing the speed through the blue signal wire using <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogWrite()</span>. The change in speed isn't particularly noticable, but it is there.</p>
+
+<video height="400px" controls>
+	<source src="fan.MOV" type="video/mp4">
+</video>
+
+<p>The next step was to mount a potentiometer to the fan in order to be able to control the speed fluidly. The potentiometer also reminds me of the knob-style speed control that the fans in our dorms have. In order to modulate the speed of the fan using the potentiometer, I wired it to the 5V pin, ground, and analog input 1. Then, I fetched the value of the pot (ranging from 1 to 1023) using <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogRead()</span>. The value was then put through the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">map()</span> function, converting the 1024 possible values from the analog input to the 256 possible values for the analog output. Finally, the data was sent to the fan through digital output pin 6 (a PWM pin) using <span markdown="1" style="background-color: lightgray; font-family:Courier New;">analogWrite()</span>. You can download the code for the potentiometer <a href="fan.ino" download>here</a>.</p>
+
+<img src=fancode1.png alt="The test code" style="width: 300px; height:auto; display:block;">
+<video height="400px" controls>
+	<source src="potspd.MOV" type="video/mp4">
+</video>
+
+<p>You can see in the video that the potentiometer was able to control the speed of the fan quite nicely. Rob later suggested that the potentiometer be directly in series with the fan, which would produce much more noticable effects on the speed but would be harder to control.</p>
+
+<p>Of course, fans need gratings to prevent children from sticking their tiny fingers into the fan blades. I rapidly designed a <a href="models.zip" download>model</a> for the fan casing in Fusion 360. The fan was measured to be 3 inches from mounting point to adjacent mounting point, so the casing was designed to be 4 inches by 4 inches on the front and back faces. The fan's height was measured to be roughly 2.25 inches, so the middle segment of the casing was made to be 2.75 inches to accomodate for the inclusion of circuit elements into the structure. The mounting points themselves were measured to be 0.325 inches at the longest diameter (roughly the size of a 21/64 inch drill bit), so supporting columns were made to the dimension of 0.32 inches in diameter to allow for a tight fit. The grating was vertical bars 5 mm wide in 5 mm offsets.</p>
+
+<div>
+<img src="sketch1.png" alt="Sketch 1" style="height: auto; width:300px;">
+<img src="model1.png" alt="Model 1" style="height: auto; width:300px;">
+<img src="sketch2.png" alt="Sketch 2" style="height: auto; width:300px;">
+<img src="model2.png" alt="Model 2" style="height: auto; width:300px;">
+</div>
+
+<p>These models suggest that the best way to construct the components is a combination of additive and subtrative measures. However, I chose 3D printing as the way to go due to inexperience with machining wood on the shop bot and also for aesthetic purposes.</p>
+
+<p>The models were sliced using Ultimaker Cura slicing utility. I got a 6 hour 39 minute and 8 hour print time, so I had to do the prints overnight. I checked on the print in progress in the side room at 9:00 PM Tuesday and it was going well, so I slept tight and hoped for the best.</p>
+
+<img src="print.jpg" alt="The print" style="width: 300px; height: auto;">
+
+<p>The next morning, I went to the lab early to finish up the initial fan apparatus. The first thing that I did was to check if the pieces fit together well with the fan, as my main concern was that the poles would not fit into the holes and that the poles were not properly lined up with the mounting points on the fan. I found out that the poles were too large for the holes, even though the holes were dimensioned to perfectly fit the poles. In order to remediate this issue, I drilled through the holes again with a 21/64 inch drill bit to widen the holes slightly. Furthermore, the fan's mounting points didn't exactly coincide with the locations of the poles, which meant that I had to widen those holes as well.</p>
+
+<p>Next, I assembled the initial structure by mounting the fan onto the front structure (the one with the poles) through the pre-determined mounting points. I got a really tight fit, so I was satisfied and moved on to finishing up the electronics.</p>
+
+<img src="init.jpg" alt="The initial assembly" style="width: 300px; height: auto;">
+
+<p>Initially, all of the circuitry was prototyped on an Arduino Uno. In order to make the fan more compact, I decided to use an Arduino nano for the board in the final product. On Tuesday, I had already prepared a Nano by soldering on the pins for this purpose, so I just had to finish making the connections to the Nano.</p>
+
+<p>I started by clipping off roughly half of the wire that came with the fan (including the ribbon adapter). Then, I twisted together the loose ends for ease of soldering. The wires were soldered to their corresponding pins (Ground to ground, 12V to Vin, speed output to A0, and input to digital output 6). The potentiometer was done in the same fashion.</p>
+
+<img src="solder.jpg" alt="Soldering process" style="height: auto; width:300px;">
+<img src="solder2.jpg" alt="Soldering done" style="height: auto; width:300px;">
+
+<p>The electronics were now completed, so I mounted the Nano to the stationary part of the fan using hot glue. The pieces were then joined together using hot glue and the potentiometer was mounted onto the top of the back piece using glue as well.</p>
+
+<p>Next, I had to upload my code to the Arduino. These efforts were initially met with failure. I tried to upload and recieved an error, and then I realized my board was set to the Arduino Uno instead of the Nano.</p>
+
+<img src="Uno.png" alt="Initial Board Selection" style="height: auto; width:300px;">
+<img src="nano.png" alt="Nano Board Selection" style="height: auto; width:300px;">
+
+<p>I changed my board to the Arduino Nano and then tried again, but I got a programmer error (which suggests driver issues that have yet to be resolved):</p>
+
+<img src="fail.png" alt="My failure" style="height: auto; width:300px;">
+
+<p>I tried to change the processor to the ATMega328P Old Bootloader, but this didn't work. I also tried to change the programmer from AVRISP mkII to AVR ISP and ArduinoISP, but this had no effect on the uploading process.</p>
+
+<p>Fortunately, Lana was able to help me out with uploading the program by kindly allowing me to use her computer.</p>
+
+<video height="400px" controls>
+	<source src="fanfinal.MOV" type="video/mp4">
+</video>
+
+<a href="#1" class="mini" id="2" style="display: block;">Minimize</a>
+
+</div>
