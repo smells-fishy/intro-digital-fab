@@ -143,6 +143,25 @@ permalink: /12/
 
 </div>
 
+<p class="collapsible">Class (August 1)</p>
+
+<div id="5" class="content">
+
+<p>Today, I made some pretty dramatic progress toward a final product that is presentable. I started today off by transferring the circuitry onto an Arduino Micro board for ease of development (no more uploading errors). First, I had to solder the pin connectors onto the board.</p>
+
+<img src="micro.jpg" alt="The Arduino Micro" style="height: auto; width:300px;">
+
+<p>Afterwards, I had to wire the RF chip to the Micro. Unfortunately, the Micro has a different pinout than the Uno and the Nano, so I had to do some Googling to figure out how to do it.</p>
+
+<img src="micro_pinout.png" alt="The Arduino Micro pinout" style="height: auto; width:300px;">
+<img src="micro_rf.jpg" alt="The Arduino Micro with RF chip attached" style="height: auto; width:300px;">
+
+<p>The rest of the work was done in code. After closely examining the recieving code, I noticed the discrepancies that had caused the code to remain non-functional.</p>
+
+<a href="#5" class="mini" id="6" style="display: block;">Minimize</a>
+
+</div>
+
 <script>
 	//Expanding script
 	var coll = document.getElementsByClassName("collapsible");
