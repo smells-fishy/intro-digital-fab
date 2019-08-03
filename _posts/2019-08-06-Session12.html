@@ -166,9 +166,45 @@ permalink: /12/
 
 <p>However, I ran into the issue that the fan speed would be infinited incremented because the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">feedback</span> variable would be set to either 0 or 1 forever if there was no other input from the transmitter. To fix this, I reassigned <span markdown="1" style="background-color: lightgray; font-family:Courier New;">feedback</span> a value of 2 at the end of the loop, which is a number that can neither be sent nor cause any action in the if/else statement.</p>
 
-<p>The program can be downloaded <a href="fan.ino">here</a>.</p>
+<p>The program can be downloaded <a href="fan.ino" download>here</a>.</p>
 
 <a href="#5" class="mini" id="6" style="display: block;">Minimize</a>
+
+</div>
+
+<p class="collapsible">Lab (August 3)</p>
+
+<div id="7" class="content">
+
+<p>Today, I worked on getting the h-bridge working for motor driving in order to make the "moving" part of "moving fan" work.</p>
+
+<p>H-bridges act as bipolar motor drivers, which means that they can drive motors in two directions. This is helpful because it allows for turning and reverse driving.</p>
+
+<p>I started by wiring the power pins of the motor driver to the Arduino Micro, which required me to use a breadboard to split the VCC connection into parallel. I also wired two signal wires to PWM pins 3 and 5 for motor control.</p>
+
+<img src="hwire.jpg" alt="The h-bridge wired up" style="height: auto; width:300px;">
+
+<p>Next, I wired a motor to the chip. This required a flathead screwdriver to unscrew the set screws to allow for wire insertion.</p>
+
+<img src="hmotor.jpg" alt="The motor wired to the h-bridge" style="height: auto; width:300px;">
+
+<p>Next, I decided to solder my components to a protoboard. I started by soldering the pins on my components to the protoboard.</p>
+
+<img src="protorf.jpg" alt="The protoboard with the RF component soldered" style="height: auto; width:300px;">
+
+<p>Next, I soldered colored wires from the RF component to the Arduino. Unfortunately, the colored wires are of the frayed copper type, which makes them difficult to handle with solder. This, combined with a lack of skill, resulted in a mess.</p>
+
+<img src="protorf1.png" alt="The protoboard with the RF component soldered and wired" style="height: auto; width:300px;">
+
+<p>The job deteriorated to the point where I will have to redo it, so unfortunately any potential progress in this front was negated.</p>
+
+<p>However, some progress was made in the programming front. I was able to reuse the code for transmitting speed control data for directional control. The program allows for instruction of forward, backward, and left/right turning using a D-pad as the controller.</p>
+
+<img src="dpad.png" alt="The d-pad control code" style="height: auto; width:300px;">
+
+<p>You can download my code <a href="radio_v2.ino" download>here</a>.</p>
+
+<a href="#5" class="mini" id="8" style="display: block;">Minimize</a>
 
 </div>
 
