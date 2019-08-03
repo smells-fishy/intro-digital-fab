@@ -60,11 +60,9 @@ void loop() {
 
   //Set feedback variable to 2 to allow for discrete signal reading
   feedback = 2;
-  
+
+  //Update fan speed
   analogWrite(6, output);
   Serial.println(output);
   
-  //Optional debug code
-  //int output = analogRead(A0);
-  //Serial.println(output);
 }

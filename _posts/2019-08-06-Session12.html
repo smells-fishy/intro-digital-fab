@@ -158,6 +158,16 @@ permalink: /12/
 
 <p>The rest of the work was done in code. After closely examining the recieving code, I noticed the discrepancies that had caused the code to remain non-functional.</p>
 
+<p>The first issue was that the node names did not correspond with the names specified in the transmitter code. Furthermore, for the down button I was reading the wrong pin. These issues were remediated today by making the address names match and fixing the pin reading issue.</p>
+
+<p>The next step was to implement a way to increment fan speed using the data recieved from the radio transmitter. I did this by using if/else if/else statements to analyze the byte data that was coming in from the radio and increasing/decreasing the speed based off of this input.</p>
+
+<img src="if.png" alt="The if/else code" style="height: auto; width:300px;">
+
+<p>However, I ran into the issue that the fan speed would be infinited incremented because the <span markdown="1" style="background-color: lightgray; font-family:Courier New;">feedback</span> variable would be set to either 0 or 1 forever if there was no other input from the transmitter. To fix this, I reassigned <span markdown="1" style="background-color: lightgray; font-family:Courier New;">feedback</span> a value of 2 at the end of the loop, which is a number that can neither be sent nor cause any action in the if/else statement.</p>
+
+<p>The program can be downloaded <a href="fan.ino">here</a>.</p>
+
 <a href="#5" class="mini" id="6" style="display: block;">Minimize</a>
 
 </div>

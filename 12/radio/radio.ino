@@ -12,9 +12,15 @@ byte upButton;
 byte downButton;
 
 void setup() {
-  //Set up button input pins
+  //Set up speed control button input pins
   pinMode(2, INPUT);
   pinMode(3, INPUT);
+
+  //Set up motor control button input pins
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
+  pinMode(6, INPUT);
+  pinMode(7, INPUT);
   
   Serial.begin(115200);
   
@@ -34,6 +40,8 @@ void loop() {
 
   upButton = digitalRead(2);
   downButton = digitalRead(4);
+
+  
 
   //Serial.println(upButton);
 
