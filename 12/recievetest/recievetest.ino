@@ -6,14 +6,10 @@ RF24 radio(7,8);
 
 byte addresses[][6] = {"Remo","Fan"};
 
-//Radio Input variable
-byte feedback;
+byte feedback = 1;
 
 void setup() {
-  // Set up input/output pins
-  pinMode(A0, INPUT);
-  pinMode(6, OUTPUT);
-
+  // put your setup code here, to run once:
   //Initialize serial monitor to observe data.
   Serial.begin(115200);
   
@@ -32,37 +28,9 @@ void setup() {
 }
 
 void loop() {
-  //Put out a middle value from 0 to 255
-  float output = 25.5 * 5;
-
-
-  //Check if there are available bytes to read, and then receive
+  // put your main code here, to run repeatedly:
   if(radio.available()){
     radio.read( &feedback, 1);
   }
   Serial.println(feedback);
-
-  //Speed down-modulation code
-  if(feedback == 0) {
-    //Ensure speed doesn't go below 0
-    if (output > 0){
-      output -= 25.5;
-    } else {}
-  }
-
-  //Speed up-modulation code
-  else if(feedback == 1) {
-    //Ensure speed doesn't go above 255
-    if (output < 255){
-      output += 25.5;
-    } else{}
-  }
-
-  //Set feedback variable to 2 to allow for discrete signal reading
-  feedback = 2;
-
-  //Update fan speed
-  analogWrite(6, output);
-  //Serial.println(output);
-  
 }

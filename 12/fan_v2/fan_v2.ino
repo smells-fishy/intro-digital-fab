@@ -7,7 +7,7 @@ RF24 radio(7,8);
 byte addresses[][6] = {"Remo","Fan"};
 
 //Radio infotype variable
-byte info = 0;
+byte info = 10;
 
 //Radio Speed Input variable
 byte feedback;
@@ -54,24 +54,24 @@ void setup() {
 }
 
 void loop() {
-  while(info == 0) {
+  while(info == 10) {
     if(radio.available()){
       radio.read(&info, 1);
     }
   }
   respond();
   
-  if(info == 11){
+  if(info == 0){
     spd();
     respond();
   }
   
-  else if(info==12){
+  else if(info == 1){
     ud();
     respond();
   }
   
-  else if(info==13){
+  else if(info == 2){
     lr();
     respond();
   }
@@ -154,7 +154,7 @@ void lr() {
   }
 
   //Turn left (left backward, right forward)
-  if(lrfeed == 0) {
+  if(lrfeed == 10) {
      digitalWrite(leftA, LOW);
      digitalWrite(leftB, HIGH);
      digitalWrite(rightA, HIGH);
