@@ -78,28 +78,28 @@ void loop() {
 
   //Code for data transmission for up/down direction
   if(upButton == HIGH && downButton == LOW && rightButton == LOW) {                  //If the up button is pressed, drive forward, but only if turning is not active
-    udFeed = 1;
+    udFeed = 2;
     if(!radio.write(&udFeed, 1)){
       Serial.println("failed");
     }
     radio.write(&udFeed, 1);
   } else if(downButton == HIGH && downButton == LOW && rightButton == LOW) {         //If the down button is pressed, drive backwards, but only if turning is not active
-    udFeed = 0;
+    udFeed = 3;
     if(!radio.write(&udFeed, 1)){
       Serial.println("failed");
     }
     radio.write(&udFeed, 1);
   } else { }                                 //Alternatively, do nothing
-
+  
   //Code for data transmission for left/right direction
   if(leftButton == HIGH) {                  //If the left button is pressed, turn to the left
-    lrFeed = 0;
+    lrFeed = 4;
     if(!radio.write(&lrFeed, 1)){
       Serial.println("failed");
     }
     radio.write(&udFeed, 1);
   } else if(rightButton == HIGH) {         //If the right button is pressed, turn to the right
-    lrFeed = 1;
+    lrFeed = 5;
     if(!radio.write(&lrFeed, 1)){
       Serial.println("failed");
     }
