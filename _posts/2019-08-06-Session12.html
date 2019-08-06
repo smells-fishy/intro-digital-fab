@@ -204,7 +204,7 @@ permalink: /12/
 
 <p>You can download my code <a href="radio_v2.ino" download>here</a>.</p>
 
-<a href="#5" class="mini" id="8" style="display: block;">Minimize</a>
+<a href="#7" class="mini" id="8" style="display: block;">Minimize</a>
 
 </div>
 
@@ -237,11 +237,27 @@ permalink: /12/
 
 <p>I also used the oscilloscope to detect signals coming from the <strong>M</strong>aster <strong>I</strong>n <strong>S</strong>lave <strong>O</strong>ut (MISO) and <strong>M</strong>aster <strong>O</strong>ut <strong>S</strong>lave <strong>I</strong>n pins (MOSI). I saw regular peaks in the MISO pin on the reciever and a regular signal in the MOSI pin on the transmitter, but they didn't correspond, which suggests a hardware issue with the RF transmitter and reciever chips.</p>
 
+<p>Unfortunately, troubleshooting the code took all of class, so my other progress had to be made outside of class.</p>
+
 <p>In other news, I made some progress toward full directional control using the motor driver. I started by remounting a motor controller to my board using pin/socket wires in the fashion described in the August 3 lab tab. Then, I worked on controlling a motor using the motor driver.</p>
 
 <img src = "motordrive.jpg" alt="The motor driver" style="height: auto; width:300px;">
 
-<p>My first task was to
+<p>My first task was to gain two-directional control of the motor using the motor driver. This can be accomplished by hooking the input pins on the driver to digital output pins on the Arduino and setting the voltage to high on one side and low on the other. By reversing the configuration, you can run the motor backward and gain bipolar control. I attached the top of an isopropyl alcohol wipe package for ease of viewing.</p>
+
+<video height="400px" controls>
+	<source src="motor.MOV" type="video/mp4">
+</video>
+
+<video height="400px" controls>
+	<source src="slomo_motor.MOV" type="video/mp4">
+</video>
+
+<p>The <a href = "motorcode.ino" download>program for this</a> isn't that complicated. It simply sets digital out pin 2 to high and digital out pin 3 to low, waits a second, and then swaps.</p>
+
+<img src="motorcode.png" alt="The motor driver code" style="height: auto; width:300px;">
+
+<a href="#9" class="mini" id="10" style="display: block;">Minimize</a>
 
 </div>
 
