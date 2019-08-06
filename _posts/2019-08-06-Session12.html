@@ -103,7 +103,7 @@ permalink: /12/
 <p>During Wednesday lab on July 31, I worked on getting RF chips to communicate properly, which is key to the remote control aspect of my project. For this project, I chose to use the nRF24 chips in the lab, which have an 8-pin pinout.</p>
 
 <img src="pinout.png" alt="The nRF24 chip pinout" style="height: auto; width:300px;">
-<img src="arduinopin.jpg" alt="The corresponding arduino pinout" style="height: auto; width:300px;">
+<img src="arduinopin.png" alt="The corresponding arduino pinout" style="height: auto; width:300px;">
 
 <p>The above images were found online both on Lana's documentation and on Google Images. These came in very helpful when wiring up the RF modules.</p>
 
@@ -194,7 +194,7 @@ permalink: /12/
 
 <p>Next, I soldered colored wires from the RF component to the Arduino. Unfortunately, the colored wires are of the frayed copper type, which makes them difficult to handle with solder. This, combined with a lack of skill, resulted in a mess.</p>
 
-<img src="protorf1.png" alt="The protoboard with the RF component soldered and wired" style="height: auto; width:300px;">
+<img src="protorf1.jpg" alt="The protoboard with the RF component soldered and wired" style="height: auto; width:300px;">
 
 <p>The job deteriorated to the point where I will have to redo it, so unfortunately any potential progress in this front was negated.</p>
 
@@ -237,7 +237,11 @@ permalink: /12/
 
 <p>I also used the oscilloscope to detect signals coming from the <strong>M</strong>aster <strong>I</strong>n <strong>S</strong>lave <strong>O</strong>ut (MISO) and <strong>M</strong>aster <strong>O</strong>ut <strong>S</strong>lave <strong>I</strong>n pins (MOSI). I saw regular peaks in the MISO pin on the reciever and a regular signal in the MOSI pin on the transmitter, but they didn't correspond, which suggests a hardware issue with the RF transmitter and reciever chips.</p>
 
-<p>
+<p>In other news, I made some progress toward full directional control using the motor driver. I started by remounting a motor controller to my board using pin/socket wires in the fashion described in the August 3 lab tab. Then, I worked on controlling a motor using the motor driver.</p>
+
+<img src = "motordrive.jpg" alt="The motor driver" style="height: auto; width:300px;">
+
+<p>My first task was to
 
 </div>
 
