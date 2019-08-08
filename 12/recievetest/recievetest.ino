@@ -6,7 +6,7 @@ RF24 radio(7,8);
 
 byte addresses[][6] = {"Remo","Fan"};
 
-byte feedback = 1;
+byte feedback = 0;
 
 void setup() {
   // put your setup code here, to run once:

@@ -50,7 +50,7 @@ void setup() {
 void loop() {
   //Send byte to indicate that the next byte controls up/down, then wait
   info = 0;
-  if(!radio.write(&info, 1)){
+  while(!radio.write(&info, 1)){
       Serial.println("failed");
     }
   radio.write(&info, 1);

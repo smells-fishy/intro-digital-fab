@@ -259,7 +259,72 @@ permalink: /12/
 
 <p>Unfortunately, without the ability to transmit data using the program, I was unable to make any further progress.</p>
 
+<p>That night, I made a small cross-shaped mold for the d-pad. You can download the STL file <a href="mold.stl" download>here</a>.</p>
+
 <a href="#9" class="mini" id="10" style="display: block;">Minimize</a>
+
+</div>
+
+<p class="collapsible">Labs (August 7)</p>
+
+<div id="12" class="content">
+
+<p>Today, I made large strides toward completion of my final project. I started by preparing the silicone for casting in the mold I made.</p>
+
+<img src="silicone.jpg" alt="The silicone used for casting" style="height: auto; width:300px;">
+<img src="cast.jpg" alt="The cast" style="height: auto; width:300px;">
+
+<p>Next, I cut a metal rod of a suitable size into a piece short enough to act as an axle. This was accomplished using a hacksaw on a metal rod of 0.156 inches.</p>
+
+<img src="hacksaw.jpg" alt="The hacksaw and axle" style="height: auto; width:300px;">
+
+<p>I also realized the need for motor holders. I dimensioned the motors I was planning on using to be 0.96 inches wide at the widest point and 0.72 inches tall at the tallest point. Keeping this in mind, I created a small motor holder block designed for the fan apparatus in Fusion and printed it.</p>
+
+<img src="motorholder.png" alt="The motor holder design" style="height: auto; width:300px;">
+<img src="motorholderside.jpg" alt="The side view of the motorholder" style="height: auto; width:300px;">
+
+<p>The STL file can be found <a href="motorholder.stl" download>here</a>.</p>
+
+<p>To add to the adventure, I decided to print the holder with a layer height of 0.3mm in order to save time, since I'm on a tight schedule. I was really hoping that it would work, and it actually turned out beautifully.</p>
+
+<img src="point3.png" alt="The 0.3mm layer height setting" style="height: auto; width:300px;">
+<img src="motorholder2.jpg" alt="The finished motor holder" style="height: auto; width:300px;">
+
+<p>The next part of lab was spend on rewriting <a href="finalcode.zip" download>code</a>. I had come to the realization that the acknowledgement system that I had developed was largely dysfunctional because the role reversal was not synchronized. In order to counteract this, I wrote a program where the transmitter constantly transmits and the reciever constantly recieves. In order to emulate the effect of the information identifier I had developed, I used the location pointer of an array as a datapoint identifier. The sent values are organized by a for loop into an array, which can be accessed at any time to enable responses to the sent data.</p>
+
+<img src="for.png" alt="The for loop system" style="height: auto; width:300px;">
+
+<p>Now that I had resolved the software issue with the remote controller, I could get to work finishing the hardware aspect. In this front, I had to do my least favorite thing: soldering. Unfortunately, I made the unwise decision of using a protoboard to form a set of parallel connections, which resulted in me burning myself many, many times. The lesson to be learned: don't do parallel connections on a protoboard unless you understand how to directly bridge connections using solder.</p>
+
+<img src="remotesolder1.jpg" alt="The frontside of the remote board" style="height: auto; width:300px;">
+<img src="remotesolder.jpg" alt="The backside of the remote board" style="height: auto; width:300px;">
+
+<p>Later today, I worked heavily on 3D design and printing. I designed a <a href="remotestl.zip" download>case and a cap for the remote</a> in Fusion 360 and the 3D-printed them using our Prusa printers.</p>
+
+<img src="box.png" alt="The design of the box" style="height: auto; width:300px;">
+<img src="box.jpg" alt="The printed box" style="height: auto; width:300px;">
+<img src="cap.png" alt="The design of the cap" style="height: auto; width:300px;">
+<img src="cap.jpg" alt="The printed cap" style="height: auto; width:300px;">
+
+<p>Unfortunately, the box came out to the wrong dimensions. I will additionally have to compensate for the Arduino nano port by leaving a large rectangular hole in the side of the casing. On a more pleasant note, the silicone d-pad mold fit in very snugly, so there was progress gained.</p>
+
+<img src="fitcap.jpg" alt="The d-pad control fit into the cap" style="height: auto; width:300px;"
+
+<p>I also took the time to assemble a little gearbox kit that Nathan gave me. This gearbox kit came with specifications and instructions for making 6 different gear ratios. I created the 76.5:1 and the 196.7:1 gear ratio boxes.</p>
+
+<img src="kit.jpg" alt="The gearbox kit" style="height: auto; width:300px;">
+<img src="instructions.jpg" alt="The instruction sheet" style="height: auto; width:300px;">
+<img src="components.jpg" alt="The kit components" style="height: auto; width:300px;">
+
+<p>At first, I made the 76.5:1 ratio box, but I found that it ran far too fast for my intended application, at 132 rpm. I needed something with more torque, so I decided to slow it down.</p>
+
+<img src="76-5.jpg" alt="The completed 76.5:1 gearbox" style="height: auto; width:300px;">
+
+<video height="400px" controls>
+	<source src="76-5.MOV" type="video/mp4">
+</video>
+
+
 
 </div>
 
