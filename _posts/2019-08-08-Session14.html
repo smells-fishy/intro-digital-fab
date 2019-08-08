@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tony's Adventure: Fixing a Prusa Mk3 i3"
+title:  "Tony's Adventure: Removing Stuck Filament in a Prusa i3 MK3"
 permalink: /13/
 ---
 
@@ -8,10 +8,41 @@ permalink: /13/
 
 <p>Unfortunately, when autoloading the PETG, the filament was not able to extrude past a certain point. Furthermore, the filament came out very short upon unloading, which meant that it was time to do some maintenance and remove the filament from the Teflon guide tube manually.</p>
 
+<p>Before attempting any manual unloading of filament, the printer needs to be preheated to the temperature for the filament you are removing.</p>
+
 <p>The first step was to loosen the side screw that allows a panel to rise, which will expose the extruder stepper motors. This can help troubleshoot the root of the issue.</p>
 
-<img src="sidescrew.jpg" alt="The kit components" style="height: auto; width:300px;">
+<img src="sidescrew.jpg" alt="The side screw hole" style="height: auto; width:300px;">
 
 <p>On the other side, you should see something like this:</p>
 
-<img src=
+<img src="extruderinside.jpg" alt="The inside of the extruder" style="height: auto; width:300px;">
+
+<p>Inside, you can see some toothed wheels. These are driven by the extruder stepper motors and grip the filament to push it through the heated area and nozzle. In my case, there was a piece of pilament that broke off in the guide tube, so there was a little dot of orange in there.</p>
+
+<img src="filmament.jpg" alt="The stuck filament" style="height: auto; width:300px;">
+
+<p>In order to get this out, you have to diassemble the extruder. The first step is to loosen the two screws on the front side of the side fan. This allows for the front face of the extruder to move forward when you unscrew the back and front.</p>
+
+<img src="fanscrew.jpg" alt="The fan screws, removed" style="height: auto; width:300px;">
+
+<p>Then, you have to loosen the front and the back screws. The front screws aren't in a very obvious location; they are in underneath the stepper motor and above the fan. The back screws are at the top of the back of the extruder.</p>
+
+<img src="front.jpg" alt="The front screws" style="height: auto; width:300px;">
+<img src="back.jpg" alt="The back screws" style="height: auto; width:300px;">
+
+<p>It would be prudent at this moment to kindly remind you to be organized if you are following these instructions. Make sure you don't lose any screws or other components! I left mine on the heatbed so I could keep a constant eye on them because they have a tendency to disappear.</p>
+
+<img src="organization.jpg" alt="My system of organization" style="height: auto; width:300px;">
+
+<p>Now, if you pull a little bit, the extruder should come apart. NOTE: don't pull them all the way apart, just enough for access to the extruder. There are two very strongly magnetic pieces that are very difficult to reassemble if you pull too far. In the image I took of the disassembled printer, you can see the two magnetic pieces have already been dislodged.</p>
+
+<img src="extruderout.jpg" alt="The exposed filament tube" style="height: auto; width:300px;">
+
+<p>The magnets are marked with red lines, and the filament tube with the release is marked with a green circle. In order to remove the filament, press down on the black release and pull out.</p>
+
+<img src="filmamentremove.jpg" alt="The removed filament" style="height: auto; width:300px;">
+
+<p>Now, we need to reassemble the printer. In essence, you follow the above instructions, just backward. You can see the end result of the process below: a clean filament tube with no excess filament.</p>
+
+<img src="extruderclean.jpg" alt="The stuck filament" style="height: auto; width:300px;">
