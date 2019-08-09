@@ -39,3 +39,58 @@ permalink: /11/
 <a href="#2" class="mini" id="8" style="display: block;">Minimize</a>
 
 </div>
+
+<p class="collapsible">Labs (August 5 and 6)</p>
+
+<div id="9" class="content">
+
+<p>Today during lab, I redid the soldering job from last time. Although it's not perfect, it looks much better now and is confirmed to have no shorts. By reorienting the RF module and the motor driver to be orthogonal to each other, I was able to find space for the wires to slide through without interfering with the connections to the other component. However, there is still the issue that the connections are hard to read due to how crowded the board is.</p>
+
+<img src="solder1.jpg" alt="The re-done soldering job" style="height: auto; width:300px;">
+
+<p>I also made some substantial programming progress today. The focus of my work was on creating a system to distinguish between the different "intentions" of the data being sent from the RF transmitter. For example, data could be going to the reciever for speed control, but the reciever might understand it as directional control.</p>
+
+<p>My first approach was to create a system of numbers that encoded different actions. In order to do this, I assigned 0, 1, 2, 3, 4, and 5 as "successful" transmissions, 14 and 15 as "failures" (do nothing), and 11, 12, and 13 as "information types." Therefore, 0, 1, 2, 3 ,4 and 5 elicited some form of response from the reciever fan control, and 14 and 15 indicated a lack of action. On the other hand, 11, 12, and 13 signaled which fan subsystem the program was referencing, with 11 being the speed, 12 being the forward/backward control, and 13 being the left/right turning control.</p>
+
+<img src="byteid.png" alt="The information signal" style="height: auto; width:300px;">
+<img src="placeholder.png" alt="The code for a placeholder signal" style="height: auto; width:300px;">
+
+<p>I also added a waiting function into the transmitter code in order to prevent the signals from obfuscating one another. The code waits for a response ping from the reciever before continuing the program, which prevents multiple readings from confusing the board.</p>
+
+<img src="wait.png" alt="The wait code" style="height: auto; width:300px;">
+
+<p>However, I had no boards to test with at home, so I was working in the blind. I also wrote another version of the program using only the numbers 0 and 1 to test the hypothesis that the wait/response system effectively eliminated the need for unique numbers for each operation.</p>
+
+<p>You can download both programs <a href = "radiocode_8_06.zip" download>here</a>.</p>
+
+<p>Once I got into the lab, I started testing the program. I initially believed that the lack of function was due to an inability to send numbers greater than 10, but I realized that made no sense since a byte can be 256 unique numbers from 0 to 255. Examinations using some <a href="testcode.zip" download>test code</a> revealed that one of the chips seemed to be incapable of receiving and the other one incapable of sending.</p>
+
+<p>I also used the oscilloscope to detect signals coming from the <strong>M</strong>aster <strong>I</strong>n <strong>S</strong>lave <strong>O</strong>ut (MISO) and <strong>M</strong>aster <strong>O</strong>ut <strong>S</strong>lave <strong>I</strong>n pins (MOSI). I saw regular peaks in the MISO pin on the reciever and a regular signal in the MOSI pin on the transmitter, but they didn't correspond, which suggests a hardware issue with the RF transmitter and reciever chips.</p>
+
+<p>Unfortunately, troubleshooting the code took all of class, so my other progress had to be made outside of class.</p>
+
+<p>In other news, I made some progress toward full directional control using the motor driver. I started by remounting a motor controller to my board using pin/socket wires in the fashion described in the August 3 lab tab. Then, I worked on controlling a motor using the motor driver.</p>
+
+<img src = "motordrive.jpg" alt="The motor driver" style="height: auto; width:300px;">
+
+<p>My first task was to gain two-directional control of the motor using the motor driver. This can be accomplished by hooking the input pins on the driver to digital output pins on the Arduino and setting the voltage to high on one side and low on the other. By reversing the configuration, you can run the motor backward and gain bipolar control. I attached the top of an isopropyl alcohol wipe package for ease of viewing.</p>
+
+<video height="400px" controls>
+	<source src="motor.MOV" type="video/mp4">
+</video>
+
+<video height="400px" controls>
+	<source src="slomo_motor.MOV" type="video/mp4">
+</video>
+
+<p>The <a href = "motorcode.ino" download>program for this</a> isn't that complicated. It simply sets digital out pin 2 to high and digital out pin 3 to low, waits a second, and then swaps.</p>
+
+<img src="motorcode1.png" alt="The motor driver code" style="height: auto; width:300px;">
+
+<p>Unfortunately, without the ability to transmit data using the program, I was unable to make any further progress.</p>
+
+<p>That night, I made a small cross-shaped mold for the d-pad. You can download the STL file <a href="mold.stl" download>here</a>.</p>
+
+<a href="#9" class="mini" id="10" style="display: block;">Minimize</a>
+
+</div>
