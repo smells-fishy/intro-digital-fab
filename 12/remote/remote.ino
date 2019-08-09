@@ -69,6 +69,12 @@ void loop() {
     Serial.println("failed spd down");
     } radio.write(&info, 1);
   }
+  else if (spdDownButton == LOW && spdUpButton == LOW) {
+    info = 0;
+    if (!radio.write(&info, 1)) {
+    Serial.println("failed spd neutral");
+    } radio.write(&info, 1);
+  }
   else if (upButton == HIGH && leftButton == LOW && rightButton == LOW) {
     info = 2;
     if (!radio.write(&info, 1)) {
@@ -81,6 +87,12 @@ void loop() {
     Serial.println("failed ud down");
     } radio.write(&info, 1);
   }
+  else if (downButton == LOW && upButton == LOW) {
+    info = 0;
+    if (!radio.write(&info, 1)) {
+    Serial.println("failed ud neutral");
+    } radio.write(&info, 1);
+  }
   else if (rightButton == HIGH) {
     info = 2;
     if (!radio.write(&info, 1)) {
@@ -91,6 +103,12 @@ void loop() {
     info = 1;
     if (!radio.write(&info, 1)) {
     Serial.println("failed lr left");
+    } radio.write(&info, 1);
+  }
+  else if (rightButton == LOW && leftButton == LOW) {
+    info = 0;
+    if (!radio.write(&info, 1)) {
+    Serial.println("failed lr neutral");
     } radio.write(&info, 1);
   }
 }

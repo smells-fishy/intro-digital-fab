@@ -16,15 +16,19 @@ byte data[3];
 float output = 25.5 * 5;
 
 //Pins for motor control
-int leftA = 2;
-int leftB = 3;
-int rightA;
-int rightB;
+int leftA = 5;
+int leftB = 4;
+int rightA = 2;
+int rightB = 3;
 
 void setup() {
   // put your setup code here, to run once:
    // Set up input/output pins
   pinMode(A0, INPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
 
   //Initialize serial monitor to observe data.
@@ -50,6 +54,7 @@ void loop() {
     radio.read(&data1, 1);
     data[i] = data1;
     Serial.print(data1);
+    Serial.println("");
   }
 
   //Speed down-modulation code
@@ -98,5 +103,18 @@ void loop() {
     digitalWrite(leftB, HIGH);
     digitalWrite(rightA, LOW);
     digitalWrite(rightB, HIGH);
+  }
+  else if(data[0] == 0) {}
+  else if(data[1] == 0) {
+    digitalWrite(leftA, LOW);
+    digitalWrite(leftB, LOW);
+    digitalWrite(rightA, LOW);
+    digitalWrite(rightB, LOW);
+  }
+  else if(data[2] == 0) {
+    digitalWrite(leftA, LOW);
+    digitalWrite(leftB, LOW);
+    digitalWrite(rightA, LOW);
+    digitalWrite(rightB, LOW);
   }
 }
